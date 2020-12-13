@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<body>
+  <style>
+    @import url("data:text/css,body{background:hsl(125, 50%, 50%) !important;}body::after{content: \"@import supports() is supported :)\" !important;}") supports(display:block);
+
+    body {
+      background: hsl(0, 50%, 50%);
+    }
+
+    body::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      content: "@import supports() is not supported :(";
+      font-size: max(4vw, 4vh);
+      width: calc(100% - 8px);
+      text-align: center;
+      font-family: sans-serif;
+    }
+  </style>
+</body>

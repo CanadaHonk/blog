@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>campaign on honk.camp</title>
+    <link>https://honk.camp/categories/campaign/</link>
+    <description>Recent content in campaign on honk.camp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://honk.camp/categories/campaign/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Malware Promotion via Fake Forums</title>
+      <link>https://honk.camp/p/malware-promotion-via-fake-forums/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/p/malware-promotion-via-fake-forums/</guid>
+      <description>Discovering Whilst doing some random googling and looking at some of the last pages, I noticed a recurring pattern in some sites which came up. Then, I noticed this was a method for promoting malware with some interesting ways. This is a writeup on this method.
+Forums In case you don&amp;rsquo;t know, forums are a popular form of websites for discussing topics, usually having sites dedicated to certain things like computing, companies / projects (like Mozilla, etc).</description>
+    </item>
+    
+    <item>
+      <title>Electrum Malware Campaign</title>
+      <link>https://honk.camp/p/electrum-malware-campaign/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/p/electrum-malware-campaign/</guid>
+      <description>Targeting The main method of targetting users seems to be via a malicious Google Ads campaign. The main site where users seem to be encountering this is Reddit, as seen in this Reddit thread posted. This seems to be executing JS to make an alert telling users to update Electrum and making an executable download via opening another browser (we will talk about how later in the HTML code review). This can be seen in the apparent content of the alert as said in the Reddit thread:</description>
+    </item>
+    
+  </channel>
+</rss>

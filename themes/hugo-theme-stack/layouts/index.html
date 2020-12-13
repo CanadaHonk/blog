@@ -1,0 +1,82 @@
+{{ define "main" }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($pages | intersect $notHidden) }}
+    {{ $pag := .Paginate ($filtered) }}
+
+    <p class="bio">Software engineer @mozilla on 🔥🦊 (DOM, web platform). open sourcerer.</p>
+
+    <div class="duality-of-me">
+        <div>
+            <h1 class="category-title">Day Job</h1>
+
+            <section class="article-list project-list single">
+                <a href="https://firefox.com"><article style="border: 2px solid rgba(255, 73, 59, 0.9); box-shadow: 0px 0px 8px 2px rgba(255, 73, 59, 0.8)"><div class="article-details">
+                    <h2 class="article-title">Firefox</h2>
+                    <h3 class="article-subtitle">
+                        I work at Mozilla on Firefox full-time, specifically DOM Core (think HTML elements and most things exposed in <code>window</code>)<br><br class="bonus">
+                        Now working on: lazy loading iframes, &lt;hr&gt; in &lt;select&gt;<br>
+                        Last shipped: User Activation API (6th October)
+                    </h3>
+                </div></article></a>
+            </section>
+        </div>
+
+        <div>
+            <h1 class="category-title">Projects</h1>
+
+            <section class="article-list project-list">
+                <a href="https://shadow.goose.icu"><article style="border: 2px solid rgba(0, 0, 0, 0.8); box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.7)"><div class="article-details">
+                    <h2 class="article-title">Shadow</h2>
+                    <h3 class="article-subtitle">A new novel browser engine made (almost) entirely in JS from scratch</h3>
+                </div></article></a>
+                <a href="https://porffor.goose.icu"><article style="border: 2px solid rgba(156, 96, 224, 0.9); box-shadow: 0px 0px 8px 2px rgba(156, 96, 224, 0.8)"><div class="article-details">
+                    <h2 class="article-title">porffor</h2>
+                    <h3 class="article-subtitle">A basic experimental AOT optimizing JS -> Wasm compiler (and more) in JS</h3>
+                </div></article></a>
+            </section>
+
+            <section class="article-list project-list mini">
+                <a href="https://test262.fyi"><article style="border: 2px solid rgba(244, 225, 95, 0.8); box-shadow: 0px 0px 8px 2px rgba(244, 225, 95, 0.7)"><div class="article-details">
+                    <h2 class="article-title">test262.fyi</h2>
+                    <h3 class="article-subtitle">View many JS engines' test262 (JS test suite) results</h3>
+                </div></article></a>
+                <a href="https://arrpc.openasar.dev"><article style="border: 2px solid rgba(113, 123, 235, 0.9); box-shadow: 0px 0px 4px 1px rgba(113, 123, 235, 0.8)"><div class="article-details">
+                    <h2 class="article-title">arRPC</h2>
+                    <h3 class="article-subtitle">Open implementation of Discord's local RPC server</h3>
+                </div></article></a>
+                <a href="https://capybara.openasar.dev"><article style="border: 2px solid rgba(248, 213, 147, 0.8); box-shadow: 0px 0px 4px 1px rgba(248, 213, 147, 0.7)"><div class="article-details">
+                    <h2 class="article-title">Capybara</h2>
+                    <h3 class="article-subtitle">Tiny fast robust Squirrel.Windows alternative</h3>
+                </div></article></a>
+            </section>
+        </div>
+    </div>
+
+    <h1 class="category-title">Posts</h1>
+    <section class="article-list">
+        {{ range $index, $element := $pag.Pages }}
+            {{ if (isset .Params "ramble") }}
+            {{ else }}
+                {{ partial "article-list/default" . }}
+            {{ end }}
+        {{ end }}
+    </section>
+
+    <h1 class="category-title">Ramblings</h1>
+    <section class="article-list">
+        {{ range $index, $element := $pag.Pages }}
+            {{ if (isset .Params "ramble") }}
+                {{ partial "article-list/default" . }}
+            {{ else }}
+            {{ end }}
+        {{ end }}
+    </section>
+
+    {{- partial "pagination.html" . -}}
+    {{ partialCached "footer/footer" . }}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" . }}
+{{ end }}

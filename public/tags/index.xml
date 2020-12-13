@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on honk.camp</title>
+    <link>https://honk.camp/tags/</link>
+    <description>Recent content in Tags on honk.camp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://honk.camp/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>forums</title>
+      <link>https://honk.camp/tags/forums/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/tags/forums/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>electrum</title>
+      <link>https://honk.camp/tags/electrum/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/tags/electrum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>discord</title>
+      <link>https://honk.camp/tags/discord/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/tags/discord/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

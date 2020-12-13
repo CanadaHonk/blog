@@ -1,0 +1,32 @@
+{{ define "body-class" }}template-csp{{ end }}
+{{ define "main" }}
+<section class="article-list article-page">
+  {{ range .Params.items }}
+  <article class="main-article">
+    <div class="article-details">
+      <header class="article-category">
+        {{ range .categories }}
+        <a href="#">{{- . -}}</a>
+        {{ end }}
+      </header>
+      <details>
+      <summary>
+      <h2 class="article-title">
+        {{- .title -}}
+      </h2>
+      </summary>
+      <section class="article-content">
+        {{ .content | markdownify }}
+      </section>
+      </details>
+      <footer class="article-time">
+        {{ partial "helper/icon" "clock" }}
+        <time class="article-time--published">
+          {{- .date -}}
+        </time>
+      </footer>
+    </div>
+  </article>
+  {{ end }}
+</section>
+{{ end }}

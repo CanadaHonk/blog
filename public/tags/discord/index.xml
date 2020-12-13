@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>discord on honk.camp</title>
+    <link>https://honk.camp/tags/discord/</link>
+    <description>Recent content in discord on honk.camp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://honk.camp/tags/discord/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GooseUpdate v3 Codebase Design</title>
+      <link>https://honk.camp/p/gooseupdate-v3-codebase-design/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/p/gooseupdate-v3-codebase-design/</guid>
+      <description>GooseUpdate Intro GooseUpdate is an alternative Discord update endpoint which gives users both normal Discord updates with mods (of the user&amp;rsquo;s choice) patched into them automatically. You can find it on GitHub, and also look at the online dashboard.
+v3 I started making v3 as the code for GooseUpdate was becoming more complicated and cluttered; since all the code was in one JS file. The idea for v3 was to split it up to be more manageable, plus more easy to maintain and improve in the future.</description>
+    </item>
+    
+    <item>
+      <title>Discord&#39;s Telemetry on WebSocket Connect</title>
+      <link>https://honk.camp/p/discords-telemetry-on-websocket-connect/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honk.camp/p/discords-telemetry-on-websocket-connect/</guid>
+      <description>Intro Discord uses a WebSocket for communication between their servers and it&amp;rsquo;s web client. I decided to look into it to see if it has any telemetry with their desktop client (even a tiny amount); it does.
+The WebSocket WebSocket Intro WebSockets are great for using low bandwidth / data and fast communication, as it is event-driven and can easily support compressed and small messages. They are primarily used in the web, but can also be used server-side for some things.</description>
+    </item>
+    
+  </channel>
+</rss>

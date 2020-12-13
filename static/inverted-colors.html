@@ -1,0 +1,38 @@
+<body>
+  <style>
+    body {
+      background: hsl(0, 50%, 50%);
+    }
+
+    body::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      content: "inverted-colors is not supported :(";
+      font-size: max(4vw, 4vh);
+      width: calc(100% - 8px);
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    @media (inverted-colors: inverted) {
+      body {
+        background: hsl(125, 50%, 50%);
+      }
+
+      body::after {
+        content: "inverted-colors is inverted (supported!)";
+      }
+    }
+
+    @media (inverted-colors: none) {
+      body {
+        background: hsl(60, 50%, 50%);
+      }
+
+      body::after {
+        content: "inverted-colors is none (supported!)";
+      }
+    }
+  </style>
+</body>
