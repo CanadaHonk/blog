@@ -1,0 +1,7 @@
+<div id="target"></div>
+<script>
+  const max = 100_000_000
+  target.style.opacity = `calc(
+    ${[...Array(max)].reduce(n => `${n} + 1`, '0')}
+  )`
+</script>

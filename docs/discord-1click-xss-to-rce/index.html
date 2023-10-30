@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Path traversal in an Electron app leading to NodeJS execution from browser'>
+
+<link rel="icon" href="/img/avatar.png"><title>Discord 1-click XSS to RCE (2020)</title>
+
+<link rel='canonical' href='/discord-1click-xss-to-rce/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Discord 1-click XSS to RCE (2020)'>
+<meta property='og:description' content='Path traversal in an Electron app leading to NodeJS execution from browser'>
+<meta property='og:url' content='/discord-1click-xss-to-rce/'>
+<meta property='og:site_name' content='goose.icu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-10-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2022-10-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Discord 1-click XSS to RCE (2020)">
+<meta name="twitter:description" content="Path traversal in an Electron app leading to NodeJS execution from browser">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu09708bc55717c97a187e664e56a836fc_1890324_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">goose.icu</a></h1>
+        <h2 class="site-description">Software engineer @ ???? (check back Oct 1st 👀), perf @nodejs &#43; many side projects</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/discord-1click-xss-to-rce/">Discord 1-click XSS to RCE (2020)</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Path traversal in an Electron app leading to NodeJS execution from browser
+    </h3>
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Oct 01, 2022</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <h2 id="electron-isolation-overview">Electron Isolation Overview</h2>
+<p>Discord&rsquo;s desktop app is made with <a class="link" href="https://electronjs.org"  target="_blank" rel="noopener"
+    >Electron</a>. The (modern) Electron security model focuses on having the browser sandbox, the renderer process, and the main process. each are isolated from each other as separate processes so require some interface to communicate, like so:</p>
+<pre tabindex="0"><code>    main world (scripts inside the site)
+      ↑                            |
+      |       contextBridge        |
+      |                            ↓
+ isolated world (limited node as preload)
+      ↑ ipcMain                    |
+      |                            |
+      |                ipcRenderer ↓
+           main process (node)
+</code></pre><p><a class="link" href="https://www.electronjs.org/docs/latest/api/ipc-main"  target="_blank" rel="noopener"
+    ><code>ipcMain</code></a> and <a class="link" href="https://www.electronjs.org/docs/latest/api/ipc-renderer"  target="_blank" rel="noopener"
+    ><code>ipcRenderer</code></a> are event-based ways to communicate between the renderer and main process. The renderer doesn&rsquo;t have access to all capabilities and it&rsquo;s generally recommended to use it largely for such communication for security.</p>
+<p><a class="link" href="https://www.electronjs.org/docs/latest/api/context-bridge"  target="_blank" rel="noopener"
+    ><code>contextBridge</code></a> exposes functions in the preload (isolated world) to the main world in the <code>window</code> object.</p>
+<h2 id="discord-native-modules">Discord Native Modules</h2>
+<p>Discord have their own native modules system with their updater, allowing separate modules for their purposes. The main modules they have are:</p>
+<ul>
+<li><code>discord_desktop_core</code> - Loaded by the app (<code>app.asar</code>) which creates the main window with the client</li>
+<li><code>discord_voice</code> - Native libraries for voice chat / screenshare / etc</li>
+<li><code>discord_rpc</code> - Exposes some Node modules for creating and managing the client&rsquo;s <a class="link" href="https://discord.com/developers/docs/topics/rpc"  target="_blank" rel="noopener"
+    >RPC server</a></li>
+</ul>
+<p>These are exposed to the main world (the Discord webapp loaded) via their own exposed context bridge, <code>DiscordNative</code>. Specifically, <code>DiscordNative.nativeModules.requireModule(name)</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">requireModule</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="sr">/^discord_[a-z0-9_-]+$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">name</span> <span class="o">!==</span> <span class="s1">&#39;erlpack&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;&#34;&#39;</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#34; is not a whitelisted native module&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>They use Node&rsquo;s <code>require</code>, which looks scary but the input is explicitly checked to begin with <code>discord_</code> or being <code>erlpack</code>. The paths (<code>module.paths</code>) which can be required are carefully controlled earlier on. However, what if we could add our own file in one of the paths which we could then require?</p>
+<h2 id="discord-native-file-saving">Discord Native File Saving</h2>
+<p>Discord have an API in their context bridge for saving files with a UI prompt for where with <code>DiscordNative.fileManager.saveWithDialog</code>, this is why we need 1-click, as the user must click save themselves. We can supply our own contents, filename, and default directory. The default directory is appended to the Downloads folder for the running user. However, it isn&rsquo;t sanitized or checked for <a class="link" href="https://portswigger.net/web-security/file-path-traversal"  target="_blank" rel="noopener"
+    >path traversal</a>, so we can give it <code>../../../../../</code> (etc) to escape to the root dir.</p>
+<p>Another context bridge API, <code>DiscordNative.fileManager.getModulePath()</code>, gives us the path straight to an allowed path by the native module requirer. So we can combine them for a full path into the directory we want.</p>
+<h2 id="bringing-it-all-together">Bringing it all together</h2>
+<p>Combining these separate functions and knowledge, we can make our exploit:</p>
+<ul>
+<li>Save file with dialog with:
+<ul>
+<li>Filename: <code>discord_rce.js</code></li>
+<li>Contents: our Node payload, for example opening calc - <code>require('child_process').exec('calc.exe')</code></li>
+<li>Base path: <code>../../../../</code> (etc) + module path</li>
+</ul>
+</li>
+<li>Require our self-written file with the native module API</li>
+<li>Node execution (profit!)</li>
+</ul>
+<h2 id="reporting">Reporting</h2>
+<ul>
+<li>12th October 2020: Reported to Discord via HackerOne</li>
+<li>13th October 2020: Fixed by checking path given to native file saving function</li>
+<li>13th October 2020: Given $100 bounty</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2023 goose.icu</section>
+    <section class="powerby">Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/dark.min.css">
+
+    </body>
+</html>

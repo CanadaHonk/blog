@@ -1,0 +1,38 @@
+<body>
+  <style>
+    body {
+      background: hsl(0, 50%, 50%);
+    }
+
+    body::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      content: "prefers-reduced-transparency is not supported :(";
+      font-size: max(4vw, 4vh);
+      width: calc(100% - 8px);
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      body {
+        background: hsl(125, 50%, 50%);
+      }
+
+      body::after {
+        content: "prefers-reduced-transparency is reduce (supported!)";
+      }
+    }
+
+    @media (prefers-reduced-transparency: no-preference) {
+      body {
+        background: hsl(60, 50%, 50%);
+      }
+
+      body::after {
+        content: "prefers-reduced-transparency is no-preference (supported!)";
+      }
+    }
+  </style>
+</body>

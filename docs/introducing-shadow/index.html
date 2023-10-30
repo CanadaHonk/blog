@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Shadow is a new novel browser engine made almost entirely in JS'>
+
+<link rel="icon" href="/img/avatar.png"><title>Introducing Shadow</title>
+
+<link rel='canonical' href='/introducing-shadow/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Introducing Shadow'>
+<meta property='og:description' content='Shadow is a new novel browser engine made almost entirely in JS'>
+<meta property='og:url' content='/introducing-shadow/'>
+<meta property='og:site_name' content='goose.icu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-10-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-10-27T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Introducing Shadow">
+<meta name="twitter:description" content="Shadow is a new novel browser engine made almost entirely in JS">
+    </head>
+    <body class="">
+        <div class="container flex on-phone--column align-items--flex-start extended article-page with-toolbar">
+            <aside class="sidebar left-sidebar sticky">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header class="site-info">
+        
+            <figure class="site-avatar">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu09708bc55717c97a187e664e56a836fc_1890324_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+
+                
+            </figure>
+        
+        <h1 class="site-name"><a href="/">goose.icu</a></h1>
+        <h2 class="site-description">Software engineer @ ???? (check back Oct 1st 👀), perf @nodejs &#43; many side projects</h2>
+    </header>
+
+    <ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search'>
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <div id="article-toolbar">
+        <a href="/" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+            <span>Back</span>
+        </a>
+    </div>
+
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/introducing-shadow/">Introducing Shadow</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        Shadow is a new novel browser engine made almost entirely in JS
+    </h3>
+    <footer class="article-time">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <time class="article-time--published">Oct 27, 2023</time>
+    </footer></div>
+</header>
+
+    <section class="article-content">
+    <p>So I started making a browser engine (for fun) a few days ago, it felt kind of inevitable <a class="link" href="https://porffor.goose.icu"  target="_blank" rel="noopener"
+    >after starting a JS engine</a>, so here we are. Here&rsquo;s a short rundown. <a class="link" href="https://github.com/canadahonk/shadow"  target="_blank" rel="noopener"
+    >Source code too!</a></p>
+<h1 id="try-it-in-your-browserhttpsshadowgooseicu"><a class="link" href="https://shadow.goose.icu"  target="_blank" rel="noopener"
+    >Try it in your browser!</a></h1>
+<h4 id="screenshot-of-shadows-welcome-page-running-inside-shadow-as-of-writing">Screenshot of Shadow&rsquo;s welcome page running inside Shadow (as of writing)</h4>
+<p><img src="https://github.com/CanadaHonk/shadow/assets/19228318/9431b624-94aa-4209-87c9-60d2478badf6" alt="Screenshot of Shadow&amp;rsquo;s welcome page in shadow"  /></p>
+<h3 id="what">What?</h3>
+<p>A browser(/web) engine essentially takes in a URL(/etc) and gives you it rendered into a window for you to view and interact with. Shadow does this too, almost entirely from scratch, made in JS. It runs in your browser! Node backend soon™ too? The host browser(/etc) is only used for networking (<code>fetch</code>) and renderer backend (<code>&lt;canvas&gt;</code>).</p>
+<h4 id="components-of-shadow">Components of Shadow</h4>
+<p><img src="https://mermaid.ink/svg/pako:eNpVkT1vhDAMhv8KygxVaTuB1Kljp96axSLukQtJUByK0N399zogFJAyOI_f1x_yXXReoWjENcDYF98_rXRF0YH7A6peqs_eU0zEYZx9MNpdj5R6UH6uGEQ7jBAIwwlnV8LKW2YdUVZmH2c4vzbfBYwGWPwUszn_t4hRQKcwbOX2-KQ8wG2vBGcgmzahUXPSemdwOXKjkXDIjR9-jJV2j9vqvlEed42TTbp1Lu3MJS4DFq9lXdb83gqKwRtsAqr2LKnfy_pjT_MFllaUwvI8oBXf5J7UUsQeLUrRcKggGCmke7IOpugvi-tEE8OEpZhGBRG_NHAhK5pfGAif_zYlpas?bgColor=101418" alt="Component flowchart"  />
+(red = external/not me)</p>
+<h3 id="why-make-it">Why make it?</h3>
+<p>It&rsquo;s just for fun, no really. Learning too. It will probably never work with 90% of websites, and that&rsquo;s okay. <del>Also it&rsquo;s funny to see people react in many forms of &ldquo;wtf?&quot;</del></p>
+<h3 id="screenshot-of-serenityosorg-running-inside-shadow-left-vs-firefox-right">Screenshot of serenityos.org running inside Shadow (left) vs Firefox (right)</h3>
+<p>
+<img src="https://github.com/CanadaHonk/shadow/assets/19228318/2f9c14e9-a23d-4f92-9f7d-d29aa68ba1bf" width=600>
+<img src="https://github.com/CanadaHonk/shadow/assets/19228318/19850ac0-2950-4919-8147-a957eefa7c09" width=600>
+</p>
+<p>Pretty spot on! No list markers yet. Colors are different as UA/browser defined.</p>
+<h3 id="name">Name</h3>
+<p>As with all my recent projects, the name is because I thought it was kind of funny at the time. Shadow is named after the defunct &lt;shadow&gt; element. I mostly stole this idea from Blink (was it intentional to name it after a dead HTML element at the time?). Also it sounds spooky and mysterious so that&rsquo;s a bonus I guess?</p>
+<h3 id="it-supports-javascript">It supports JavaScript??!</h3>
+<p>Yes, kind of. This is quite complicated (as you can probably imagine), so I&rsquo;ll do it in a separate future dedicated post if you&rsquo;re interested (DM/reply me on twitter).</p>
+<h3 id="why-publish-it">Why publish it?</h3>
+<p>Why not? If someone can learn something or just find what I make fun/interesting, that makes me happy :)</p>
+<h3 id="but-making-a-new-browser-engine-is-impossible">But making a new browser engine is impossible!</h3>
+<p><a class="link" href="https://ladybird.dev"  target="_blank" rel="noopener"
+    >No</a>. <a class="link" href="https://servo.org"  target="_blank" rel="noopener"
+    >It</a>. <a class="link" href="https://www.ekioh.com/flow-browser/"  target="_blank" rel="noopener"
+    >Isn&rsquo;t</a>! <em>(Also I don&rsquo;t really care how possible/feasible something is.)</em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">&copy; 2023 goose.icu</section>
+    <section class="powerby">Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="1.1.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<link rel="stylesheet" href="/css/highlight/dark.min.css">
+
+    </body>
+</html>
