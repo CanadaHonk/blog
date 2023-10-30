@@ -2,60 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://honk.camp/categories/campaign/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/categories/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/introducing-shadow/</loc>
+    <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/tags/forums/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/mozilla-chronicles-1/</loc>
+    <lastmod>2023-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/p/malware-promotion-via-fake-forums/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/joining-mozilla/</loc>
+    <lastmod>2023-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/post/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/discord-0click-xss-to-rce/</loc>
+    <lastmod>2022-10-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/tags/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
+    <loc>/discord-1click-xss-to-rce/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/categories/writeup/</loc>
-    <lastmod>2021-07-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/tags/electrum/</loc>
-    <lastmod>2021-02-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/p/electrum-malware-campaign/</loc>
-    <lastmod>2021-02-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/tags/discord/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/categories/gooseupdate/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/p/gooseupdate-v3-codebase-design/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/p/discords-telemetry-on-websocket-connect/</loc>
+    <loc>/page/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/page/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/categories/telemetry/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://honk.camp/archives/</loc>
+    <loc>/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://honk.camp/search/</loc>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/search/</loc>
+  </url><url>
+    <loc>/tags/</loc>
   </url>
 </urlset>

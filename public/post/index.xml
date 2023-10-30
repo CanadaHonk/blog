@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on honk.camp</title>
-    <link>https://honk.camp/post/</link>
-    <description>Recent content in Posts on honk.camp</description>
+    <title>Posts on goose.icu</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on goose.icu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://honk.camp/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Malware Promotion via Fake Forums</title>
-      <link>https://honk.camp/p/malware-promotion-via-fake-forums/</link>
-      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      <title>Introducing Shadow</title>
+      <link>/introducing-shadow/</link>
+      <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://honk.camp/p/malware-promotion-via-fake-forums/</guid>
-      <description>Discovering Whilst doing some random googling and looking at some of the last pages, I noticed a recurring pattern in some sites which came up. Then, I noticed this was a method for promoting malware with some interesting ways. This is a writeup on this method.
-Forums In case you don&amp;rsquo;t know, forums are a popular form of websites for discussing topics, usually having sites dedicated to certain things like computing, companies / projects (like Mozilla, etc).</description>
+      <guid>/introducing-shadow/</guid>
+      <description>So I started making a browser engine (for fun) a few days ago, it felt kind of inevitable after starting a JS engine, so here we are. Here&amp;rsquo;s a short rundown. Source code too!
+Try it in your browser! Screenshot of Shadow&amp;rsquo;s welcome page running inside Shadow (as of writing) What? A browser(/web) engine essentially takes in a URL(/etc) and gives you it rendered into a window for you to view and interact with.</description>
     </item>
     
     <item>
-      <title>Electrum Malware Campaign</title>
-      <link>https://honk.camp/p/electrum-malware-campaign/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      <title>Mozilla Chronicles #1</title>
+      <link>/mozilla-chronicles-1/</link>
+      <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://honk.camp/p/electrum-malware-campaign/</guid>
-      <description>Targeting The main method of targetting users seems to be via a malicious Google Ads campaign. The main site where users seem to be encountering this is Reddit, as seen in this Reddit thread posted. This seems to be executing JS to make an alert telling users to update Electrum and making an executable download via opening another browser (we will talk about how later in the HTML code review). This can be seen in the apparent content of the alert as said in the Reddit thread:</description>
+      <guid>/mozilla-chronicles-1/</guid>
+      <description>&amp;hellip;or I guess day 13 if you include weekends? (I don&amp;rsquo;t even watch big brother.) You can tell this is informal, right? And entirely my own opinions ;)
+Work I&amp;rsquo;ve been doing Implemented and shipped the User Activation API in my first week! Almost done lazy loading iframes now too. Patch is submitted for review as of writing. Landing that and shipping next week, probably. Rambling Headlines Subtly sacrificing anonymity and/or privacy: My real name is now obviously tied to my username in some (work) places online publicly, and I&amp;rsquo;m okay with it.</description>
     </item>
     
     <item>
-      <title>GooseUpdate v3 Codebase Design</title>
-      <link>https://honk.camp/p/gooseupdate-v3-codebase-design/</link>
-      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      <title>Joining Mozilla</title>
+      <link>/joining-mozilla/</link>
+      <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://honk.camp/p/gooseupdate-v3-codebase-design/</guid>
-      <description>GooseUpdate Intro GooseUpdate is an alternative Discord update endpoint which gives users both normal Discord updates with mods (of the user&amp;rsquo;s choice) patched into them automatically. You can find it on GitHub, and also look at the online dashboard.
-v3 I started making v3 as the code for GooseUpdate was becoming more complicated and cluttered; since all the code was in one JS file. The idea for v3 was to split it up to be more manageable, plus more easy to maintain and improve in the future.</description>
+      <guid>/joining-mozilla/</guid>
+      <description>Hey! Big news first: I join Mozilla on October 1st to work on Firefox full-time! Specifically a software engineer on the DOM Core team. I am extremely excited to work on the web platform full-time. This post covers the basics of who and how. If you have any questions feel free to DM me. (Good luck job hunters!)
+Who I go by CanadaHonk (I prefer not to share my full name publicly/obviously online).</description>
     </item>
     
     <item>
-      <title>Discord&#39;s Telemetry on WebSocket Connect</title>
-      <link>https://honk.camp/p/discords-telemetry-on-websocket-connect/</link>
-      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <title>Discord 0-click XSS to RCE (2022)</title>
+      <link>/discord-0click-xss-to-rce/</link>
+      <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://honk.camp/p/discords-telemetry-on-websocket-connect/</guid>
-      <description>Intro Discord uses a WebSocket for communication between their servers and it&amp;rsquo;s web client. I decided to look into it to see if it has any telemetry with their desktop client (even a tiny amount); it does.
-The WebSocket WebSocket Intro WebSockets are great for using low bandwidth / data and fast communication, as it is event-driven and can easily support compressed and small messages. They are primarily used in the web, but can also be used server-side for some things.</description>
+      <guid>/discord-0click-xss-to-rce/</guid>
+      <description>Discord&amp;rsquo;s IPC Allowlist Discord expose a wrapped version of ipcRenderer for security, see my 1-click Discord XSS to RCE for more details on Electron&amp;rsquo;s IPC. It&amp;rsquo;s implemented with a Set:
+const discordPrefixRegex = /^DISCORD_/; function getDiscordIPCEvent(ev) { return discordPrefixRegex.test(ev) ? ev : `DISCORD_${ev}`; } const RENDERER_IPC_SEND_WHITELIST = new Set([ /* ... */ ]); function send(ev, ...args) { const prefixedEvent = getDiscordIPCEvent(ev); if (!RENDERER_IPC_SEND_WHITELIST.has(prefixedEvent)) { throw new Error(&amp;#39;cannot send this event&amp;#39;); } ipcRenderer.</description>
+    </item>
+    
+    <item>
+      <title>Discord 1-click XSS to RCE (2020)</title>
+      <link>/discord-1click-xss-to-rce/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/discord-1click-xss-to-rce/</guid>
+      <description>Electron Isolation Overview Discord&amp;rsquo;s desktop app is made with Electron. The (modern) Electron security model focuses on having the browser sandbox, the renderer process, and the main process. each are isolated from each other as separate processes so require some interface to communicate, like so:
+main world (scripts inside the site) ↑ | | contextBridge | | ↓ isolated world (limited node as preload) ↑ ipcMain | | | | ipcRenderer ↓ main process (node) ipcMain and ipcRenderer are event-based ways to communicate between the renderer and main process.</description>
     </item>
     
   </channel>

