@@ -4,7 +4,6 @@ theme = "hugo-theme-stack"
 paginate = 5
 title = "goose.icu"
 DefaultContentLanguage = "en"                   # Theme i18n support
-publishDir = "docs"
 
 [permalinks]
     post = "/:filename/"
