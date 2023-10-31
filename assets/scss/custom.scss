@@ -110,3 +110,44 @@ br.bonus {
         display: block;
     }
 }
+
+.article-page .main-article {
+    overflow: unset !important;
+}
+
+.toc {
+    float: right;
+    position: sticky;
+    top: 100px;
+    margin-top: -130px;
+
+    margin-bottom: 1em;
+
+    margin-left: 1em;
+    margin-right: 1.5em;
+
+    line-height: 1.4;
+
+    backdrop-filter: blur(3px);
+    background-color: rgba(20,24,26,.8);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l4);
+    padding: 12px !important;
+}
+
+.toc h3 {
+    margin-top: 0;
+}
+
+.article-page .main-article .article-content {
+    padding-bottom: var(--card-padding);
+}
+
+@media (max-width: 1024px) {
+    .toc {
+        position: static;
+        float: unset;
+
+        margin-top: 0;
+    }
+}
