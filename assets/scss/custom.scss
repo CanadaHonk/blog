@@ -117,7 +117,7 @@ br.bonus {
 
 .toc {
     float: right;
-    position: sticky;
+    position: static;
     top: 100px;
     margin-top: -130px;
 
@@ -145,9 +145,7 @@ br.bonus {
 
 @media (max-width: 1024px) {
     .toc {
-        position: static;
         float: unset;
-
         margin-top: 0;
     }
 }
