@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
 theme = "hugo-theme-stack"
-paginate = 5
+paginate = 20
 title = "goose.icu"
 DefaultContentLanguage = "en"                   # Theme i18n support
 
