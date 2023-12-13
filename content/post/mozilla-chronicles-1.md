@@ -2,7 +2,7 @@
 title: "Mozilla Chronicles #1"
 description: "Day 10 in the big... Mozilla house"
 date: 2023-10-12
-draft: false
+draft: true
 ramble: true
 ---
 
