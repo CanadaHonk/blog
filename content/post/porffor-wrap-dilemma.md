@@ -15,7 +15,7 @@ how does porffor wrap JS values? the answer is it doesn't (yet). porffor uses a 
 
 why do we need type information? say we have a function, `foo = x => x.length`. when generating the (Wasm) bytecode for this function, we have no clue what `x` is. a number? a string? an array? we need to know what it is to know what bytecode to generate. currently, porffor just presumes all variables are numbers unless otherwise known so this example basically does not work.
 
-so what what should we do? we need to wrap values. or do we? so far I have settled on 3 approaches, in increasing insanity:
+so what should we do? we need to wrap values. or do we? so far I have settled on 3 approaches, in increasing insanity:
 1. NaN boxing. just box all our non-number values with NaN boxing. upside: traditional, well documented. downside: bytecode is more complex, worse perf.
 2. make 2 Wasm locals/vars for each JS variable, the value/pointer and type separately. upside: simple bytecode, good perf? downside: more arguments/etc everywhere.
 3. procedurally generate function variants depending on types of arguments (inferred at compile-time). oh yeah. upside: best perf, simplest bytecode. downside: binary size. generally insane.
