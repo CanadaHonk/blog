@@ -28,7 +28,7 @@ For the above JS, Porffor has to do several checks of the type of `a`:
   - ...
   - **If number, `'number'`**
 
-I already optimize out types which are completely unused in the file. For example, all the string checks are removed if the file has 0 strings used in it. But if there were any strings, all string checks remain. Porffor could try to infer the type automatically but this is tricky and could break. Since we are compiling AOT and not JIT, we cannot de-opt, instead it would just break it.
+I already optimize out types which are completely unused in the file. For example, all the string checks are removed if the file has 0 strings used in it. But if there were any strings, all string checks remain. Porffor could try to infer the type automatically but this is tricky and could break. JIT engines can sometimes do this by presuming the type of something once it has been ran with that type several times, etc. But since we are compiling AOT and not JIT, we cannot de-opt/undo that guess if it becomes wrong - instead we would just crash.
 
 But we could define the type using type annotations (TS)!
 
@@ -53,7 +53,7 @@ I'm using [a basic Brainf... interpreter I wrote in JS (`bf.js`)](https://github
 This just runs the JS file regularly, with default options.
 
 #### `porf bf.ts -parse-types`: 274s
-This runs the TS file, but only parses the types without using them for optimization. About the same as regular JS, within error.
+This runs the TS file, but only parses the types without using them for optimization. About the same time as regular JS, within error.
 
 #### `porf bf.ts -parse-types -opt-types`: 184s
 `-opt-types` tells Porffor to use the type annotations as compiler hints. 1.5x speedup, just from using types!
@@ -69,4 +69,4 @@ For comparison, Node running the same JS file. Obviously, Node is JIT compiled s
 
 ## Conclusion
 
-The best part of this for me is that [the main diff for this feature was only +131 -25](https://github.com/CanadaHonk/porffor/commit/a6a92e01ac1e09383f5c3f24e55f2648ff714b7a), and only took me ~an evening to do; thanks to the great foundation from [the rewrite](/porffor-rewrite/). Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing. Thanks for reading! :)
+The best part of this for me is that [the main diff for this feature was small, only +131 -25](https://github.com/CanadaHonk/porffor/commit/a6a92e01ac1e09383f5c3f24e55f2648ff714b7a), and only took me ~an evening to do; thanks to the great foundation from [the rewrite](/porffor-rewrite/). Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing. Thanks for reading! :)
