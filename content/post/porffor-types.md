@@ -1,6 +1,6 @@
 ---
 title: "Porffor: Type annotations for performance"
-description: "My JS engine can now parse TS and use it for optimizations."
+description: "My JS engine can now parse TS and use it for optimizations!"
 date: 2024-01-25
 draft: false
 ---
