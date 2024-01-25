@@ -5,7 +5,7 @@ date: 2024-01-25
 draft: false
 ---
 
-My JS engine [Porffor](https://porffor.goose.icu) can now parse TypeScript, as I added pluggable parser support which includes Babel's parser (which can parse TS). This itself isn't that interesting, however I can then use those type annotations as compiler hints to optimize away unneeded instructions.
+My JS engine [Porffor](https://porffor.goose.icu) can now parse TypeScript, as I added pluggable parser support which includes Babel's parser (which can parse TS). This itself isn't that interesting, however I can now use those type annotations as compiler hints to optimize!
 
 ## Basic example
 
@@ -69,4 +69,4 @@ For comparison, Node running the same JS file. Obviously, Node is JIT compiled s
 
 ## Conclusion
 
-The best part of this is that the diff for this feature was only about +150 -50, and only took me ~an evening to do; thanks to the great foundation from the rewrite. Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing. Thanks for reading! :)
+The best part of this for me is that [the main diff for this feature was only +131 -25](https://github.com/CanadaHonk/porffor/commit/a6a92e01ac1e09383f5c3f24e55f2648ff714b7a), and only took me ~an evening to do; thanks to the great foundation from [the rewrite](/porffor-rewrite/). Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing. Thanks for reading! :)
