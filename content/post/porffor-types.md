@@ -69,4 +69,4 @@ For comparison, Node running the same JS file. Obviously, Node is JIT compiled s
 
 ## Conclusion
 
-Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing. Thanks for reading! :)
+The best part of this is that the diff for this feature was only about +150 -50, and only took me ~an evening to do; thanks to the great foundation from the rewrite. Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing. Thanks for reading! :)
