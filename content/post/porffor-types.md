@@ -67,6 +67,9 @@ This runs the TS file, but only parses the types without using them for optimiza
 #### `node bf.js`: 66s
 For comparison, Node running the same JS file. Obviously, Node is JIT compiled so has a big advantage compared to compiling AOT to bytecode. Yet, we still roughly match it with the right options! 🚀
 
+#### `quickjs bf.js`: 1812s
+For comparison, a traditional interpreter running the same benchmark.
+
 ## Conclusion
 
 The best part of this for me is that [the main diff for this feature was small, only +131 -25](https://github.com/CanadaHonk/porffor/commit/a6a92e01ac1e09383f5c3f24e55f2648ff714b7a), and only took me ~an evening to do; thanks to the great foundation from [the rewrite](/porffor-rewrite/). Please note both regular JS and typed will likely speedup even more in the near future! This is just today. I haven't compared to many other engines as I'm saving that for a later post when I've done more benchmarking and testing.
