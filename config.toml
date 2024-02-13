@@ -23,7 +23,7 @@ DefaultContentLanguage = "en"                   # Theme i18n support
 
     [params.sidebar]
         emoji = ""
-        subtitle = "Software engineer @ ???? (check back Oct 1st 👀), perf @nodejs + many side projects"
+        subtitle = ""
         [params.sidebar.avatar]
             local = true
             src = "img/avatar.png"
