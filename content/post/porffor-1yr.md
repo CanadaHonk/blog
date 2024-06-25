@@ -5,9 +5,9 @@ date: 2024-06-25
 draft: false
 ---
 
-My JS engine [Porffor](https://porffor.dev) is a year old as of today! Porffor is my hobby JS engine which is quite unique, as it compiles JS to WebAssembly ahead-of-time, unlike major JS engines which either interpret or just-in-time compile JS.
+[Porffor](https://porffor.dev) is a year old as of today! 🎂 Porffor is my hobby JS engine which is quite unique; it compiles JS to WebAssembly ahead-of-time! This is unlike major JS engines which either interpret or just-in-time compile JS. I'm using this different approach to research the potential of it and what it could allow as a novel JS engine/compiler, plus [just for fun](https://justforfunnoreally.dev).
 
-<img alt="Screenshot of terminal showing Porffor running and compiling a hello world" src="https://github.com/CanadaHonk/porffor/assets/19228318/de8ad753-8ce3-4dcd-838e-f4d49452f8f8" width="60%">
+<img alt="Screenshot of terminal showing Porffor running and compiling a hello world" src="https://github.com/CanadaHonk/porffor/assets/19228318/de8ad753-8ce3-4dcd-838e-f4d49452f8f8" width="70%">
 
 
 ## Recap
@@ -28,9 +28,9 @@ Let's recap each major update to Porffor since around January:
 
 Since we are compiling JS to Wasm AOT, why can't we compile to native binaries too? We can! I wrote my own custom Wasm to C compiler specialized for Porffor, so it can now compile JS to native binaries which just run on your system. Not only are the binaries tiny (<20KB) but they are fast (>2x fast as Node in some tests) too, also consuming much less memory (1-2MB).
 
-<img alt="Screenshot of a terminal showing Porffor compiling and using a cat program" src="https://github.com/CanadaHonk/porffor/assets/19228318/e0581394-ba52-415b-9f56-7649558ca306" width="60%">
+<img alt="Screenshot of a terminal showing Porffor compiling and using a cat program" src="https://github.com/CanadaHonk/porffor/assets/19228318/e0581394-ba52-415b-9f56-7649558ca306" width="70%">
 
-<img alt="Screenshot of a terminal showing Porffor compiling and using a Brainf interpreter program" src="https://github.com/CanadaHonk/porffor/assets/19228318/c4c19816-1f5c-4e9f-9c69-00e9be5597d3" width="60%">
+<img alt="Screenshot of a terminal showing Porffor compiling and using a Brainf interpreter program" src="https://github.com/CanadaHonk/porffor/assets/19228318/c4c19816-1f5c-4e9f-9c69-00e9be5597d3" width="70%">
 
 
 ## Future
