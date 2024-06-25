@@ -19,7 +19,7 @@ Let's recap each major update to Porffor since around January:
 
 ## Test262
 
-[Test262](https://github.com/tc39/test262) is the official ECMAScript conformance test suite most engines use for spec compliance testing. On January 31st, Porffor was passing 11.13% of all of Test262. **Today, it is passing 21.65%**! That is almost doubling in just these last few months, and the rate is increasingly exponentially!
+[Test262](https://github.com/tc39/test262) is the official ECMAScript conformance test suite most engines use for spec compliance testing. On January 31st, Porffor was passing 11.13% of all of Test262. **Today, it is passing 21.89%**! That is almost doubling in just these last few months, and the rate is increasingly exponentially!
 
 <img alt="Graph of Porffor Test262 over time" src="https://github.com/CanadaHonk/porffor/assets/19228318/5320da7d-e945-4d16-857b-499f3a6c1180" width="100%">
 
