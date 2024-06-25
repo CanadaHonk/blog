@@ -1,11 +1,11 @@
 ---
 title: "1 year of Porffor"
-description: "My JS engine is a year old! Let's recap what has happened and what the future is."
+description: "My JS engine is a year old today! Let's recap what has happened lately and what the future holds."
 date: 2024-06-25
 draft: false
 ---
 
-[Porffor](https://porffor.dev) is a year old as of today! 🎂 Porffor is my hobby JS engine which is quite unique; it compiles JS to WebAssembly ahead-of-time! This is unlike major JS engines which either interpret or just-in-time compile JS. I'm using this different approach to research the potential of it and what it could allow as a novel JS engine/compiler, plus [just for fun](https://justforfunnoreally.dev).
+[Porffor](https://porffor.dev) is a year old as of today! 🎂 Porffor is my hobby JS engine which is quite unique; it compiles JS to WebAssembly ahead-of-time! This is unlike major JS engines which either interpret or just-in-time compile JS. I'm using this different approach to research the potential of it and what it could allow as a novel JS engine/compiler (plus [just for fun](https://justforfunnoreally.dev)).
 
 <img alt="Screenshot of terminal showing Porffor running and compiling a hello world" src="https://github.com/CanadaHonk/porffor/assets/19228318/de8ad753-8ce3-4dcd-838e-f4d49452f8f8" width="70%">
 
