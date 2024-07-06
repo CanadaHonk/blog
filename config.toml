@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 theme = "hugo-theme-stack"
 paginate = 20
-title = "goose.icu"
+title = "CanadaHonk"
 DefaultContentLanguage = "en"                   # Theme i18n support
 
 [permalinks]
