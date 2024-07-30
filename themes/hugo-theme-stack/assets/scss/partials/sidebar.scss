@@ -84,25 +84,18 @@
     z-index: 1;
     transition: box-shadow 0.5s ease;
 
-    display: inline-block;
+    display: flex;
+    align-items: center;
 
     height: 100%;
     width: fit-content;
 
-    position: relative;
-    top: -10px;
-
     .site-avatar {
-        position: relative;
         margin: 0;
         height: 40px;
         width: 40px;
 
         display: inline-block;
-
-        top: 10px;
-
-        margin-bottom: var(--sidebar-element-separation);
 
         .site-logo {
             width: 100%;
@@ -145,7 +138,7 @@
         vertical-align: text-bottom;
 
         margin: 0;
-        margin-left: 5px;
+        margin-left: 12px;
     }
 
     .site-description {
