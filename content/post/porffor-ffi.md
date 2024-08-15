@@ -5,7 +5,7 @@ date: 2024-08-15
 draft: false
 ---
 
-[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) (foreign function interface) allows JavaScript inside JS runtimes to call external native shared libraries, to do things which would be otherwise difficult to do in JS. As of today, Porffor now has (early/experimental) support for it! To test and benchmark, I adapted [a benchmark](https://github.com/littledivy/blazing-fast-ffi-talk/blob/main/sqlite.deno.ts) by [Divy Srivastava](https://littledivy.com) which uses [`sqlite3`](https://www.sqlite.org/cintro.html). Porffor's `dlopen` API intentionally has ~identical arguments to Deno, only differing slightly with the return value, looking like:
+[FFI](https://en.wikipedia.org/wiki/Foreign_function_interface) (foreign function interface) allows JavaScript inside JS runtimes to call external native shared libraries, to do things which would be otherwise difficult to do in JS. As of today, Porffor now has (early/experimental) support for it! It is currently limited to the native/C target in this early version. To test and benchmark, I adapted [a benchmark](https://github.com/littledivy/blazing-fast-ffi-talk/blob/main/sqlite.deno.ts) by [Divy Srivastava](https://littledivy.com) which uses [`sqlite3`](https://www.sqlite.org/cintro.html). Porffor's `dlopen` API intentionally has ~identical arguments to Deno, only differing slightly with the return value, looking like:
 
 ```js
 const {
