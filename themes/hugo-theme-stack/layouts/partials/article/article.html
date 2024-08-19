@@ -1,4 +1,11 @@
 <article class="{{ if .Params.image }}has-image {{ end }}main-article">
+    <h2 class="article-site-title">
+        <a href="/">
+            <img width=32 src="https://avatars.githubusercontent.com/u/19228318?v=4">Oliver Medhurst
+            <!--<img src="/img/avatar.png"><code>@canadahonk</code>-->
+        </a>
+    </h2>
+
     {{ partial "article/components/header" . }}
 
     {{ partial "article/components/content" . }}
