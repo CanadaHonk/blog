@@ -21,7 +21,7 @@ img[src$='#float-right']
 
 .bio {
     font-weight: 500;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     color: var(--card-text-color-main);
     margin-bottom: 40px;
 }
@@ -187,7 +187,7 @@ main > aside, .article-footer {
 
 .article-site-title {
     font-weight: 800;
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     color: var(--card-text-color-main);
 
     margin: 0;
@@ -204,6 +204,8 @@ main > aside, .article-footer {
 
 .article-site-title img {
     vertical-align: top;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .article-site-title img:nth-of-type(1) {
@@ -223,4 +225,8 @@ main > aside, .article-footer {
     font-weight: 400;
     font-size: 2rem;
     color: #b0b4b8;
+}
+
+.article-header > .article-details {
+    padding-bottom: calc(var(--card-padding) / 2) !important;
 }
