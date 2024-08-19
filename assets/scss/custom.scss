@@ -23,7 +23,7 @@ img[src$='#float-right']
     font-weight: 500;
     font-size: 2.6rem;
     color: var(--card-text-color-main);
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 }
 
 .project-list {
@@ -31,7 +31,7 @@ img[src$='#float-right']
     grid-template-columns: 1fr 1fr;
     gap: 40px 60px;
 
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 .project-list article {
@@ -81,7 +81,7 @@ img[src$='#float-right']
 }
 
 .article-list:not(.project-list) {
-    margin-bottom: 10vh;
+    margin-bottom: var(--section-separation);
 }
 
 .duality-of-me {

@@ -4,7 +4,10 @@
     {{ $filtered := ($pages | intersect $notHidden) }}
     {{ $pag := .Paginate ($filtered) }}
 
-    <p class="bio">Hi! I'm<img width=32 src="https://avatars.githubusercontent.com/u/19228318?v=4">Oliver Medhurst, also sometimes known as<img src="/img/avatar.png"><code>@canadahonk</code> online.<br>19 year old software engineer. ECMAScript enjoyer; Wasm wizard.</p>
+    <p class="bio">
+        Hi! I'm<img width=32 src="https://avatars.githubusercontent.com/u/19228318?v=4">Oliver Medhurst, also sometimes known as<img src="/img/avatar.png"><code>@canadahonk</code> online.<br>
+        19 year old software engineer. ECMAScript enjoyer.
+    </p>
 
     <div class="duality-of-me">
         <div>
