@@ -62,10 +62,6 @@ img[src$='#float-right']
     .project-list.mini {
         grid-template-columns: 1fr 1fr;
     }
-
-    .duality-of-me {
-
-    }
 }
 
 .project-list.single {
@@ -147,6 +143,13 @@ br.bonus {
     .toc {
         float: unset;
         margin-top: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .main-article {
+        display: flex;
+        flex-direction: column;
     }
 }
 
