@@ -1,9 +1,11 @@
 baseURL = "/"
 languageCode = "en-us"
 theme = "hugo-theme-stack"
-paginate = 20
 title = "goose.icu"
 DefaultContentLanguage = "en"                   # Theme i18n support
+
+[pagination]
+pagerSize = 20
 
 [permalinks]
     post = "/:filename/"
