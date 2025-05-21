@@ -1,6 +1,6 @@
 ---
 title: "JS engine code size"
-description: "How large are major JS engines? Let's find out!"
+description: "How large are JS engines? Let's find out!"
 date: 2025-05-21
 draft: false
 ---
@@ -16,5 +16,6 @@ Quick tiny blog post for the size of many JS engines because I couldn't find it 
 | LibJS | [Ladybird](https://ladybird.org) | ~150 thousand |
 | QuickJS | Widely used as a small(er) interpreter | ~80 thousand |
 | [Porffor](https://porffor.dev) | Yours truly, more soon(tm)! | ~20 thousand |
+
 
 I was looking at these as when talking to a few engineers one part of Porffor that stuck out to them was how tiny it is compared to other JS engines. While yes it will definitely grow over time, I'm pretty confident it will never reach the sizes of V8 or JSC. This gives Porffor the great advantage of both easier maintenance and prototyping!
