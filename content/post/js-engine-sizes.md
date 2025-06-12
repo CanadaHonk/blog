@@ -1,8 +1,8 @@
 ---
 title: "JS engine code size"
-description: "How large are JS engines? Let's find out!"
 date: 2025-05-21
 draft: false
+tangent: true
 ---
 
 Quick tiny blog post for the size of many JS engines because I couldn't find it myself and took the rabbit hole of measuring them myself. Some asterisks, this was a quick measurement and I'm not saying they are exact or correct; but I think it gives a good ballpark. These sizes are just the core source of the engine, doesn't include some parts intentionally (eg shared libraries or dependencies):

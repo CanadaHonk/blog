@@ -58,3 +58,12 @@ a {
         color: var(--body-text-color);
     }
 }
+
+.tangent {
+  width: 40%;
+}
+
+.tangent:nth-child(even) {
+  align-self: end;
+  margin-top: -165px;
+}

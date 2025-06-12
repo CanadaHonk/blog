@@ -40,22 +40,9 @@
     <h1 class="category-title">Posts</h1>
     <section class="article-list">
         {{ range $index, $element := $pag.Pages }}
-            {{ if (isset .Params "ramble") }}
-            {{ else }}
-                {{ partial "article-list/default" . }}
-            {{ end }}
+          {{ partial "article-list/default" . }}
         {{ end }}
     </section>
-
-    <!-- <h1 class="category-title">Ramblings</h1>
-    <section class="article-list">
-        {{ range $index, $element := $pag.Pages }}
-            {{ if (isset .Params "ramble") }}
-                {{ partial "article-list/default" . }}
-            {{ else }}
-            {{ end }}
-        {{ end }}
-    </section> -->
 
     {{- partial "pagination.html" . -}}
     {{ partialCached "footer/footer" . }}

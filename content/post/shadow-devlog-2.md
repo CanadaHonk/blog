@@ -1,8 +1,8 @@
 ---
 title: "Shadow Devlog #2"
-description: "What's new in Shadow from last week (Oct 31-Nov 6)"
 date: 2023-11-06
 draft: false
+tangent: true
 ---
 
 <div class="toc">
