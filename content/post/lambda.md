@@ -96,4 +96,6 @@ Porffor is ~12x faster than Node and almost 4x faster than LLRT in this case. Pl
 
 You might be expecting me to start shilling for you to plug Porffor into your Lambda instantly... but unfortunately not. Porffor is still very (pre-alpha) early.
 
-Although, if you/your company is have small Lambdas (ideally no Node APIs) and want a free quick look on if Porffor could help you, please [email me](mailto:honk@goose.icu)! Porffor is actively improving and more code is working everyday.
+Although, if you/your company have small Lambdas (ideally no Node APIs) and want a free quick look for if Porffor could help you, please [email me](mailto:honk@goose.icu)! Porffor is actively improving and more code is working everyday.
+
+For full transparency: benchmark code, CSV data and graphs are [available on GitHub here](https://github.com/CanadaHonk/porffor/tree/main/bench/lambda).
