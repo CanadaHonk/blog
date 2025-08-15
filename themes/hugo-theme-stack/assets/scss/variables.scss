@@ -86,11 +86,11 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 */
 :root {
     --article-font-family: var(--base-font-family);
-    --article-font-size: 1.8rem;
+    --article-font-size: 2rem;
     @media (max-width: $on-tablet) {
         --article-font-size: 1.6rem;
     }
-    --article-line-height: 1.6;
+    --article-line-height: 1.8;
 }
 
 /*
