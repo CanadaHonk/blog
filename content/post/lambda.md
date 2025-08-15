@@ -57,7 +57,7 @@ What's the trade-off? You have to re-invent the JS engine (and runtime) so it is
 
 ## Lambda
 
-A few days ago I got Porffor working on Lambda, not simulated locally but really hosted on AWS! I wrote a cold start benchmark for Node, [LLRT](https://github.com/awslabs/llrt) (Amazon's own experimental JS runtime optimizing cold starts) and Porffor running identical code:
+A few days ago I got Porffor running on Lambda, not simulated locally but really on AWS! I wrote a cold start benchmark for Node, [LLRT](https://github.com/awslabs/llrt) (Amazon's own experimental JS runtime optimizing cold starts) and Porffor running identical code:
 
 ```js
 export const handler = async () => {
