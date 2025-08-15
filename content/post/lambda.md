@@ -1,5 +1,5 @@
 ---
-title: "Deleting JavaScript Lambda cold starts"
+title: "Deleting Lambda cold starts for JavaScript"
 description: "Porffor can run on Lambda now!"
 date: 2025-08-14
 draft: false
