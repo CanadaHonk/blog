@@ -1,5 +1,5 @@
 ---
-title: "Deleting Lambda cold starts for JavaScript"
+title: "Eliminating JavaScript cold starts on AWS Lambda"
 description: "Porffor can run on Lambda now!"
 date: 2025-08-14
 draft: false
@@ -7,7 +7,7 @@ draft: false
 
 ## How? Enter Porffor
 
-[Porffor](https://porffor.dev) is my JS engine/runtime that compiles JavaScript ahead-of-time to WebAssembly and native binaries. What does that actually mean? It means you can do this:
+[Porffor](https://porffor.dev) is my JS engine/runtime that compiles JavaScript ahead-of-time to WebAssembly and native binaries. What does that actually mean? You can compile JS files to tiny (<1MB), fast (millisecond-level) binaries:
 
 ```sh
 ~$ bat hi.js
@@ -22,7 +22,7 @@ draft: false
 hello blog!
 ```
 
-You might be thinking, "Oh, but Bun and Deno can do that, what's so interesting?" I'll let the numbers speak for themselves:
+Node and Bun offer "compile" options, but they bundle their runtime with your JS rather than actually compiling it as if it was C++ or Rust. Porffor does that, allowing for much smaller and faster binaries:
 
 ```sh
 ~$ deno compile -o hi_deno hi.js
@@ -32,7 +32,6 @@ You might be thinking, "Oh, but Bun and Deno can do that, what's so interesting?
 97M     hi_bun
 82M     hi_deno
 4.0K    hi.js
-
 ~$ hyperfine -N "./hi" "./hi_deno" "./hi_bun" --warmup 5
 Benchmark 1: ./hi
   Time (mean ± σ):     631.4 µs ± 128.5 µs    [User: 294.5 µs, System: 253.1 µs]
@@ -52,13 +51,13 @@ Summary
    59.30 ± 12.36 times faster than ./hi_deno
 ```
 
-Don't get me wrong, it is great that they both offer this option! But for this example, Porffor simply wins. Porffor compiles your JS like C++ or Rust, so there is no >80MB runtime to bundle. What's the trade-off? You have to re-invent the JS engine (and runtime) so it is still very early: limited JS support ([but over 60% there](https://porffor.dev/#test262)) and currently no good I/O or Node compat (yet).
+What's the trade-off? You have to re-invent the JS engine (and runtime) so it is still very early: limited JS support ([but over 60% there](https://porffor.dev/#test262)) and currently no good I/O or Node compat (yet). But, we can use these tiny fast native binaries on Lambda!
 
 <br>
 
 ## Lambda
 
-A few days ago I got Porffor running on Lambda, not simulated locally but really on AWS! I wrote a cold start benchmark for Node, [LLRT](https://github.com/awslabs/llrt) (Amazon's own experimental JS runtime optimizing cold starts) and Porffor running identical code:
+A few days ago I got Porffor working on Lambda, not simulated locally but really hosted on AWS! I wrote a cold start benchmark for Node, [LLRT](https://github.com/awslabs/llrt) (Amazon's own experimental JS runtime optimizing cold starts) and Porffor running identical code:
 
 ```js
 export const handler = async () => {
@@ -70,7 +69,7 @@ export const handler = async () => {
 };
 ```
 
-Since we're benchmarking cold start, the workload does not matter as we are interested in just how we are running here. I spent over a day just benchmarking and even with my biases, the results surprised me.
+Since we're benchmarking cold start, the workload does not matter as we are interested in just how we are running here (for context most Lambdas run for <1s, typically <500ms). I spent over a day just benchmarking and even with my biases, the results surprised me.
 
 ### Node
 <img alt="A graph of benchmark results for Node, explained below" src="https://raw.githubusercontent.com/CanadaHonk/porffor/refs/heads/main/bench/lambda/node.png" style="filter: brightness(0.8)">
